@@ -1,0 +1,35 @@
+.navbar_wrapper{
+    background-color:#0b5183;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0 50px 0 50px;
+    flex-wrap: wrap;
+    height:73px;
+}
+
+.logo{
+    width:40px;
+    height:40px;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color: #553806;
+}
+
+.list_nav_options .list{
+    gap: 80px;
+    margin-left: 19%;
+}
+
+.list_item{
+    font-weight: bold;
+}
