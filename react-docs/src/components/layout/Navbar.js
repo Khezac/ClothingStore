@@ -11,8 +11,8 @@ function Navbar(){
                     <img className={styles.logo} src={logo} alt='logo'/>
                     <div className={styles.list_nav_options}>
                         <ul className={styles.list}>
-                            <li className={styles.list_item}>Home</li>
                             <li className={styles.list_item}>Barra_de_Busca</li>
+                            <li className={styles.list_item}>Home</li>
                             <li className={styles.list_item}>Sobre</li>
                         </ul>
                     </div>
