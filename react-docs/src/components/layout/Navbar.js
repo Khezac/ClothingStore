@@ -1,6 +1,8 @@
 import Container from './Container.js'
+import Separator from './Separator'
+
 import styles from './Navbar.module.css'
-import logo from '../../img/logo.png'
+import logo from '../../../src/img/logo/logo1.png'
 
 function Navbar(){
     return(
@@ -10,14 +12,14 @@ function Navbar(){
                     <div className={styles.list_nav_options}>
                         <ul className={styles.list}>
                             <li className={styles.list_item}>Home</li>
-                            <li className={styles.list_item}>Produtos</li>
-                            <li className={styles.list_item}>Carrinho</li>
+                            <li className={styles.list_item}>Barra_de_Busca</li>
+                            <li className={styles.list_item}>Sobre</li>
                         </ul>
                     </div>
-                    <div className={styles.list_signup_options}>
+                    <div className={styles.list_rightside_options}>
                         <ul className={styles.list}>
-                            <li className={styles.list_item}>Entrar</li>
-                            <li className={styles.list_item}>Cadastrar</li>
+                            <li className={styles.list_item}>Carrinho</li>
+                            <li className={styles.list_item}>Perfil</li>
                         </ul>
                     </div>
                 </nav>

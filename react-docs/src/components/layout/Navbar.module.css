@@ -1,28 +1,29 @@
 .navbar_wrapper{
-    background-color:#0b5183;
+    background-color:#ffffff;
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
     margin: 0 50px 0 50px;
     flex-wrap: wrap;
     height:73px;
 }
 
 .logo{
-    width:40px;
-    height:40px;
+    width:120px;
+    height:60px;
 }
 
 .list{
     list-style: none;
     display: flex;
     align-items: center;
+    flex-direction: row;
     gap:10px;
-    color: #553806;
+    color: #000000;
 }
 
 .list_nav_options .list{
@@ -31,5 +32,6 @@
 }
 
 .list_item{
-    font-weight: bold;
+    font-family:'Bungee', sans-serif;
+    color: #000000;
 }
