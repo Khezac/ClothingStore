@@ -23,15 +23,41 @@
     align-items: center;
     flex-direction: row;
     gap:10px;
-    color: #000000;
 }
 
 .list_nav_options .list{
-    gap: 80px;
-    margin-left: 19%;
+    gap: 30px;
+    margin-left: 7%;
 }
 
 .list_item{
     font-family:'Bungee', sans-serif;
     color: #000000;
+}
+
+.search_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    height: 40px;
+    background-color: #f5f5f5;
+    transition: 0.2s;
+    border-radius: 20px;
+    padding:20px;
+    border:solid 1px;
+}
+
+.list_item input{
+    box-shadow: none;
+    border:0 none;
+    outline: 0;
+    color: black;
+    background-color: transparent;
+    width: 470px;
+    height: 40px;
+}
+
+.search_bar:hover {
+    background-color: #dbdbdb;
 }
