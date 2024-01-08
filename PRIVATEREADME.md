@@ -1,4 +1,4 @@
-- Loja de roupas
+- ClothingShop
 
 Este é um site desenvolvido com a intenção de ser exposto em um portfólio, ele está sendo desenvolvido utilizando react com algumas outras libs e hooks.
 
