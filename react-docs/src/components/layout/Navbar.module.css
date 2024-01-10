@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+.nav_container{
+    background-color: #fff7df;
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -10,12 +14,11 @@
     margin: 0 50px 0 50px;
     flex-wrap: wrap;
     height:73px;
-    background-color:#ffffff;
 }
 
 .logo{
-    width:120px;
-    height:60px;
+    width:140px;
+    height:70px;
 }
 
 .list{

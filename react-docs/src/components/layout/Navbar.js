@@ -3,7 +3,7 @@ import logo from '../../../src/img/logo/logo1.png'
 
 import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import Container from './Container';
 
@@ -17,7 +17,7 @@ function Navbar(){
     }
 
     return(
-        <Container customClass={`${showHeader}`}>
+        <Container className={styles.nav_container} customClass={`${showHeader}`}>
         <nav className={styles.navbar}>
             <Link to='/'>
                 <img className={styles.logo} src={logo} alt='logo'/>
