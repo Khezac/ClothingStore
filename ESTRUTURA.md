@@ -19,7 +19,7 @@ Header:
 Faixa separadora:
 - Faixa de cor mais escura do que o header.
 
-Imagens rotativa:
+Imagens rotativas:
 - imagem das 4 estações que rodam ao longo do tempo
 
 Faixa separadora:

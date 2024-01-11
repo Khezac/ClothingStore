@@ -3,7 +3,7 @@
 }
 
 .nav_container{
-    background-color: #fff7df;
+    background-color: #fffcf6;
 }
 
 .navbar{
@@ -26,7 +26,14 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    justify-content: center ;
     gap:10px;
+    margin-bottom: 0;
+}
+
+.list_nav_options{
+    display: flex;
+    align-items: center;
 }
 
 .list_nav_options .list{
@@ -59,6 +66,7 @@
 
 .btn_search{
     cursor: pointer;
+    color: black;
 }
 
 .search_bar input{

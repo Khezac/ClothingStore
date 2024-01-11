@@ -6,15 +6,13 @@ import Cadastro from './components/pages/Cadastro'
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Separator from "./components/layout/Separator";
 
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Separator/>
+      <Navbar/>        
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/sobre" element={<Sobre/>}/>

@@ -1,31 +1,28 @@
 import Separator from "../layout/Separator";
 import ImageSlider from "../layout/ImageSlider";
-
-import autumn from '../../img/seasons_section1_background/autumn_section1.jpg'
-import spring from '../../img/seasons_section1_background/spring_section1.jpg'
-import summer from '../../img/seasons_section1_background/summer_section1.jpg'
-import winter from '../../img/seasons_section1_background/winter_section1.jpg'
+import ClothCard from "../layout/ClothCard";
 
 import styles from './Home.module.css'
 
-
-
 function Home() {
 
-  const slides = [
-    {id: '1', url: `${summer}`},
-    {id: '2', url: `${spring}`},
-    {id: '3', url: `${autumn}`},
-    {id: '4', url: `${winter}`},
-  ] 
-
   return (
+    <div className={styles.home_container}>
     <section>
-      <div className={styles.slider_container}>
-        <ImageSlider slides={slides}/>
-      </div>
+      <Separator/>
+        <ImageSlider/>
       <Separator/>
     </section>
+      <div className={styles.most_sold_container}>
+        <h1>Mais Vendidos</h1>
+        <h4>Coleção de verão</h4>
+        <div className="d-flex flex-row align-items-center gap-3">
+          <ClothCard/>
+          <ClothCard/>
+          <ClothCard/>
+        </div>
+      </div>
+    </div>
   );
 }
   

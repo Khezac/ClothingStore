@@ -1,5 +1,22 @@
-.slider_container{
-    width: 1280px;
-    height: 300px;
-    margin: 0 auto;
+.home_container{
+    background-color: #fffcf6;
+}
+
+.most_sold_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    padding: 30px;
+}
+
+.most_sold_container h1{
+    font-family:'Bungee', sans-serif;
+    color:black;
+}
+
+.most_sold_container h4{
+    font-family:'Bungee', sans-serif;
+    color:#d4c48f;
 }

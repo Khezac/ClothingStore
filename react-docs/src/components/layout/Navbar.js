@@ -3,21 +3,13 @@ import logo from '../../../src/img/logo/logo1.png'
 
 import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
 import Container from './Container';
 
 function Navbar(){
-    //  useState pra alternar a visibilidade do header
-    const [showHeader,setShowHeader] = useState('');
-
-    //  Função que alterna a visibilidade do header usando state
-    function toggleHeader(){
-        setShowHeader('hide')
-    }
 
     return(
-        <Container className={styles.nav_container} customClass={`${showHeader}`}>
+        <Container className={styles.nav_container}>
         <nav className={styles.navbar}>
             <Link to='/'>
                 <img className={styles.logo} src={logo} alt='logo'/>
@@ -27,7 +19,7 @@ function Navbar(){
                     <li className={styles.search_bar_wrapper}>
                         <div className={styles.search_bar}>
                             <input type='text' placeholder='Pesquise por um produto...'/>
-                            <a className={styles.btn_search}><FaSearch/></a>
+                            <a href='/' className={styles.btn_search}><FaSearch/></a>
                         </div>
                     </li>
                     <Link to='/sobre'><li className={styles.list_item}>Sobre</li></Link>
@@ -40,8 +32,8 @@ function Navbar(){
                         Esta tag só deve aparecer quando o usuário estiver logado*/}
                     {/* <li className={styles.list_item}>Perfil</li> 
                         Esta tag só deve aparecer quando o usuário estiver logado*/}
-                    <Link to='/login'><li className={styles.list_item} onClick={toggleHeader}>Login</li></Link>
-                    <Link to='/cadastro'><li className={styles.list_item} onClick={toggleHeader}>Cadastro</li></Link>
+                    <Link to='/login'><li className={styles.list_item}>Login</li></Link>
+                    <Link to='/cadastro'><li className={styles.list_item}>Cadastro</li></Link>
                 </ul>
             </div>
         </nav>
