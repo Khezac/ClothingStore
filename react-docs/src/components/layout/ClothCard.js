@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './ClothCard.module.css'
 
 function ClothCard() {
@@ -8,9 +9,11 @@ function ClothCard() {
                     <img className={styles.product_card_image} src='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' alt='card_product'/>
                     <p className={styles.product_card_name}>Nome do produto</p>
                 </div>
-                <a href='/' className={styles.buy_wrapper}>
-                    <button type="button" className="btn btn-info">Comprar</button>
-                </a>
+                <div className={styles.buy_wrapper}>
+                    <Link to='/product'>
+                        <button type="button" className="btn btn-info">Comprar</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

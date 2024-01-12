@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 
 import Container from './Container';
+import Separator from './Separator';
 
 function Navbar(){
 
@@ -37,6 +38,7 @@ function Navbar(){
                 </ul>
             </div>
         </nav>
+        <Separator/>
         </Container>
 )}
 

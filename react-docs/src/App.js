@@ -3,6 +3,7 @@ import Sobre from './components/pages/Sobre'
 import Atendimento from './components/pages/Atendimento'
 import Login from './components/pages/Login'
 import Cadastro from './components/pages/Cadastro'
+import ProductPage from "./components/pages/ProductPage";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/atendimento" element={<Atendimento/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
+          <Route path="/produtos" element={<ProductPage/>}/>
         </Routes>
       <Footer/>
     </Router>
