@@ -1,3 +1,5 @@
+import Separator from './Separator';
+
 import footerlogo from '../../img/logo/logowriting.png' 
 import { FaGithub ,FaLinkedin } from "react-icons/fa";
 
@@ -8,6 +10,7 @@ import { Link } from 'react-router-dom'
 function Footer(){
     return (
         <div className={styles.footer_wrapper}>
+            <Separator/>
             <div className={styles.footer_container}>
                 <img className={styles.footer_logo}src={footerlogo} alt='footer_logo'/>
                 <div className={styles.footer_info}>
