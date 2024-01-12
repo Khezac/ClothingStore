@@ -5,6 +5,11 @@ import CollectionCard from "../layout/CollectionCard";
 
 import styles from './Home.module.css'
 
+import autumn from '../../img/seasons_section3_cards/autumn_card.jpg'
+import spring from '../../img/seasons_section3_cards/spring_card.jpg'
+import summer from '../../img/seasons_section3_cards/summer_card.jpg'
+import winter from '../../img/seasons_section3_cards/winter_card.jpg'
+
 function Home() {
 
   return (
@@ -24,8 +29,14 @@ function Home() {
           </div>
         </div>
       </section>
-      <section>
-        <CollectionCard/>
+      <section className={styles.collections_wrapper}>
+        <h1>outras coleções</h1>
+        <div className={styles.collections_container}>
+          <CollectionCard img={autumn} txt='outono'/>
+          <CollectionCard img={spring} txt='primavera'/>
+          <CollectionCard img={summer} txt='verão'/>
+          <CollectionCard img={winter} txt='inverno'/>
+        </div>
       </section>
     </div>
   );

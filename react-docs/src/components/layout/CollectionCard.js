@@ -1,19 +1,16 @@
 import styles from './CollectionCard.module.css'
 
-import autumn from '../../img/seasons_section3_cards/autumn_card.jpg'
-import spring from '../../img/seasons_section3_cards/spring_card.jpg'
-import summer from '../../img/seasons_section3_cards/summer_card.jpg'
-import winter from '../../img/seasons_section3_cards/winter_card.jpg'
+import {Link} from 'react-router-dom'
 
-function CollectionCard (){
+function CollectionCard ({img, txt}){
     return (
         <div className={styles.collection_wrapper}>
-            <h1>Outras Coleções</h1>
-            <div className={styles.collection_container}>
-                <img className={styles.collection_card} src={spring} alt='spring_card'/>
-                <img className={styles.collection_card} src={summer} alt='summer_card'/>
-                <img className={styles.collection_card} src={autumn} alt='autumn_card'/>
-                <img className={styles.collection_card} src={winter} alt='winter_card'/>
+            <img className={styles.collection_card} src={img} alt={`${txt}_card`}/>
+            <div className={styles.go_to_collection}>
+                <h3>Coleção de {txt}</h3>
+                <Link to='/product'>
+                    <button type="button" className="btn btn-info">Visitar Coleção</button>
+                </Link>
             </div>
         </div>
     )

@@ -28,7 +28,7 @@ function Footer(){
                     </ul>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Central de Atendimento</strong></li>
-                        <li><button type="button" class="btn btn-outline-primary">Tire suas dúvidas</button></li>
+                        <li><button type="button" className="btn btn-outline-primary">Tire suas dúvidas</button></li>
                     </ul>
                 </div>
                 <div className={styles.footer_socialmedia}>
