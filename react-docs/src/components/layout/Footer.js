@@ -35,8 +35,8 @@ function Footer(){
                     </ul>
                 </div>
                 <div className={styles.footer_socialmedia}>
-                    <a href='https://www.github.com/khezac/' target='_blank'><FaGithub className={styles.social_media_logo}/></a>
-                    <a href='https://www.linkedin.com/in/khezac/' target='_blank'><FaLinkedin className={styles.social_media_logo}/></a>
+                    <a href='https://www.github.com/khezac/' rel="noreferrer" target='_blank'><FaGithub className={styles.social_media_logo}/></a>
+                    <a href='https://www.linkedin.com/in/khezac/' rel="noreferrer" target='_blank'><FaLinkedin className={styles.social_media_logo}/></a>
                 </div>
             </div>
         </div>
