@@ -21,15 +21,5 @@
     color:#d4c48f;
 }
 
-.other_collections{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 45px;
-}
 
-.other_collections h1{
-    font-family:'Bungee', sans-serif;
-    color:black;
-}
+

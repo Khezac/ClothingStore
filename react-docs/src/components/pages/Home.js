@@ -24,8 +24,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className={styles.other_collections}>
-        <h1>Outras Coleções</h1>
+      <section>
         <CollectionCard/>
       </section>
     </div>

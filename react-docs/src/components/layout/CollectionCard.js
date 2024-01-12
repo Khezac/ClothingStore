@@ -8,6 +8,7 @@ import winter from '../../img/seasons_section3_cards/winter_card.jpg'
 function CollectionCard (){
     return (
         <div className={styles.collection_wrapper}>
+            <h1>Outras Coleções</h1>
             <div className={styles.collection_container}>
                 <img className={styles.collection_card} src={spring} alt='spring_card'/>
                 <img className={styles.collection_card} src={summer} alt='summer_card'/>
