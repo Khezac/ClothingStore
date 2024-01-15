@@ -1,0 +1,24 @@
+.atendimento_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    gap:20px;
+    height:570px;
+    margin-bottom: 20px;
+}
+
+.atendimento_wrapper h1{
+    font-family:'Bungee', sans-serif;
+    color:#000000;
+}
+
+.form{
+    width: 500px;
+    height:320px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:20px;
+}
