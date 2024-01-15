@@ -16,18 +16,18 @@ function Footer(){
                 <div className={styles.footer_info}>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Institucional</strong></li>
-                        <li className={styles.item}>Politica de privacidade</li>
-                        <li className={styles.item}>Regulamentos</li>
+                        <Link to='/sobre'><li className={styles.item}>Politica de privacidade</li></Link>
+                        <Link to='/sobre'><li className={styles.item}>Regulamentos</li></Link>
                         <Link to='/sobre'><li className={styles.item}>Sobre</li></Link>
                     </ul>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Ajuda</strong></li>
-                        <li className={styles.item}>Trocas e Devoluções</li>
-                        <li className={styles.item}>Entregas</li>
-                        <li className={styles.item}>Minha Conta</li>
-                        <li className={styles.item}>Meus pedidos</li>
-                        <li className={styles.item}>Pagamentos</li>
-                        <li className={styles.item}>Cancelamentos</li>
+                        <Link to='/atendimento'><li className={styles.item}>Trocas e Devoluções</li></Link>
+                        <Link to='/login'><li className={styles.item}>Entregas</li></Link>
+                        <Link to='/login'><li className={styles.item}>Minha Conta</li></Link>
+                        <Link to='/login'><li className={styles.item}>Meus pedidos</li></Link>
+                        <Link to='/login'><li className={styles.item}>Pagamentos</li></Link>
+                        <Link to='/login'><li className={styles.item}>Cancelamentos</li></Link>
                     </ul>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Central de Atendimento</strong></li>
