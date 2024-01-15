@@ -31,7 +31,11 @@ function Footer(){
                     </ul>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Central de Atendimento</strong></li>
-                        <li><button type="button" className="btn btn-outline-primary">Tire suas dúvidas</button></li>
+                        <li>
+                            <Link to='/atendimento'>
+                                <button type="button" className="btn btn-outline-primary">Tire suas dúvidas</button>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={styles.footer_socialmedia}>

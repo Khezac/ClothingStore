@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom'
+import SubmitBtn from '../form/SubmitBtn';
+import Input from "../form/Input";
 
-function Login(toggleHeader) {
+import styles from './Login.module.css'
+
+function Login() {
     return (
-        <>
-        <Link to='/'>
-        <button onClick={toggleHeader}>Retornar</button>
-        </Link>
-        <h1>Login</h1>
-        </>
+        <div className={styles.login_wrapper}>
+            <h1>Login</h1>
+            <form className={styles.form_wrapper}>
+                <Input type='email' name='email' placeholder='Insira seu e-mail...' label='Usuário' />
+                <Input type='password' name='senha' placeholder='Insira sua senha...' label='Senha' />
+                <SubmitBtn/>
+                <Link to='/alterarsenha1'>Esqueci minha senha</Link>
+            </form>
+        </div>
     );
 }
 
