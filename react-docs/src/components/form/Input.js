@@ -1,11 +1,11 @@
 import styles from './Input.module.css'
 
-function Input ({type,name,placeholder,label}){
+function Input ({type,name,placeholder,label,onChange}){
     return (
         <div>
-        <label htmlfor={name}>{label}</label>
+        <label htmlFor={name}>{label}</label>
         <br/>
-        <input className={styles.input}type={type} name={name} placeholder={placeholder}></input>
+        <input required className={styles.input}type={type} name={name} placeholder={placeholder} autoComplete="off" onChange={onChange}></input>
         </div>
     )
 }

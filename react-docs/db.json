@@ -1,12 +1,12 @@
 {
-    "usuarios":[
-        {
-
-        }
-    ],
-    "produtos":[
-        {
-
-        }
-    ]
+  "usuarios": [
+    {
+      "id": "teste@teste",
+      "senha": "123",
+      "confirmar_senha": "123"
+    }
+  ],
+  "produtos": [
+    {}
+  ]
 }

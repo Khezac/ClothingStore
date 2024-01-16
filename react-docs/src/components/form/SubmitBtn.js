@@ -1,5 +1,5 @@
-function SubmitBtn(){
-    return <button class="btn btn-primary" type="submit">Concluir</button>
+function SubmitBtn({onSubmit}){
+    return <button className="btn btn-primary" onSubmit={onSubmit} type="submit">Concluir</button>
 }
 
 export default SubmitBtn

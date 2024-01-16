@@ -10,7 +10,7 @@ function ClothCard() {
                     <p className={styles.product_card_name}>Nome do produto</p>
                 </div>
                 <div className={styles.buy_wrapper}>
-                    <Link to='/product'>
+                    <Link to='/produtos'>
                         <button type="button" className="btn btn-info">Comprar</button>
                     </Link>
                 </div>
