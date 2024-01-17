@@ -4,6 +4,11 @@
       "id": "teste@teste",
       "senha": "123",
       "confirmar_senha": "123"
+    },
+    {
+      "id": "teste@teste34",
+      "senha": "123456",
+      "confirmar_senha": "123456"
     }
   ],
   "produtos": [

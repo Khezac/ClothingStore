@@ -10,7 +10,11 @@ function Cadastro({userData}) {
 
     const navigate = useNavigate()
 
-    const [visible,setVisible] = useState(false)
+    const [error,setError] = useState(false)
+    const [passwordVisibility, setPasswordVisibility] = useState('password')
+    const [passwordVisibilityBtn,setPasswordVisibilityBtn] = useState('bi bi-eye')
+    const [checkPasswordVisibility, setCheckPasswordVisibility] = useState('password')
+    const [checkPasswordVisibilityBtn,setCheckPasswordVisibilityBtn] = useState('bi bi-eye')
     const [user,setUser] = useState(userData || {})
 
     function handleEmail(e){
@@ -20,17 +24,17 @@ function Cadastro({userData}) {
 
     function handlePassword(e){
         setUser({...user, [e.target.name]: e.target.value})
-        console.log(user.senha)
     }
 
     function handleCheckPassword(e){
         setUser({...user, [e.target.name]: e.target.value})
+        setError(false)
     }
 
     function submit(e){
         e.preventDefault()
         if (user.confirmar_senha !== user.senha){
-            setVisible(true)
+            setError(true)
             return
         }
         sendUser(user)
@@ -51,11 +55,31 @@ function Cadastro({userData}) {
         console.log(user)
     }
 
+    function togglePasswordVisibility(){
+        if (passwordVisibility == 'password'){
+            setPasswordVisibility('text')
+            setPasswordVisibilityBtn('bi bi-eye-slash')
+        } else if (passwordVisibility == 'text'){
+            setPasswordVisibility('password')
+            setPasswordVisibilityBtn('bi bi-eye')
+        }
+    }   8
+
+    function toggleCheckPasswordVisibility(){
+        if (checkPasswordVisibility == 'password'){
+            setCheckPasswordVisibility('text')
+            setCheckPasswordVisibilityBtn('bi bi-eye-slash')
+        } else if (checkPasswordVisibility == 'text'){
+            setCheckPasswordVisibility('password')
+            setCheckPasswordVisibilityBtn('bi bi-eye')
+        }
+    }
 
     return (
         <div className={styles.cadastro_wrapper}>
             <h1>Registrar</h1>
             <form onSubmit={submit} className={styles.form_wrapper}>
+                <div className={styles.input_container}>
                 <Input 
                     type='email' 
                     name='email' 
@@ -63,24 +87,32 @@ function Cadastro({userData}) {
                     label='Usuário' 
                     onChange={handleEmail}
                 />
+                </div>
 
-                <Input 
-                    type='password' 
-                    name='senha' 
-                    placeholder='Crie sua senha...' 
-                    label='Senha' 
-                    onChange={handlePassword}
-                />
+                <div className={styles.input_container}>
+                    <Input 
+                        type={passwordVisibility}
+                        name='senha' 
+                        placeholder='Crie sua senha...' 
+                        label='Senha' 
+                        onChange={handlePassword}
+                    />
+                    <i className={passwordVisibilityBtn} style={{cursor: 'pointer'}}onClick={togglePasswordVisibility}></i>
+                </div>
 
                 <div className={styles.checkpassword_container}>
+                    <div className={styles.input_container}>
                     <Input 
-                        type='password' 
+                        type={checkPasswordVisibility}
                         name='confirmar_senha' 
                         placeholder='Insira sua senha novamente...' 
                         label='Confirmar senha' 
                         onChange={handleCheckPassword}
                     />
-                    {visible && (<p className={styles.password_error}>As senhas precisam ser iguais!</p>)}
+                    <i className={checkPasswordVisibilityBtn} style={{cursor: 'pointer'}}onClick={toggleCheckPasswordVisibility}></i>
+
+                    </div>
+                    {error && (<p className={styles.password_error}>As senhas precisam ser iguais!</p>)}
                 </div>
                 <SubmitBtn/>
             </form>
