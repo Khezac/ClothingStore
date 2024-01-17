@@ -63,7 +63,7 @@ function Cadastro({userData}) {
             setPasswordVisibility('password')
             setPasswordVisibilityBtn('bi bi-eye')
         }
-    }   8
+    }
 
     function toggleCheckPasswordVisibility(){
         if (checkPasswordVisibility == 'password'){
