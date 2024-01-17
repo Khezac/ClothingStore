@@ -46,10 +46,10 @@ function Cadastro({userData}) {
 
     // Altera a visibilidade da senha e o botão
     function togglePasswordVisibility(){
-        if (passwordVisibility == 'password'){
+        if (passwordVisibility === 'password'){
             setPasswordVisibility('text')
             setPasswordVisibilityBtn('bi bi-eye-slash')
-        } else if (passwordVisibility == 'text'){
+        } else if (passwordVisibility === 'text'){
             setPasswordVisibility('password')
             setPasswordVisibilityBtn('bi bi-eye')
         }
@@ -57,10 +57,10 @@ function Cadastro({userData}) {
 
     // Altera a visibilidade da confirmação senha e o botão
     function toggleCheckPasswordVisibility(){
-        if (checkPasswordVisibility == 'password'){
+        if (checkPasswordVisibility === 'password'){
             setCheckPasswordVisibility('text')
             setCheckPasswordVisibilityBtn('bi bi-eye-slash')
-        } else if (checkPasswordVisibility == 'text'){
+        } else if (checkPasswordVisibility === 'text'){
             setCheckPasswordVisibility('password')
             setCheckPasswordVisibilityBtn('bi bi-eye')
         }
