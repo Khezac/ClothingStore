@@ -8,29 +8,33 @@ import { useState } from 'react'
 
 function Cadastro({userData}) {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate()// Usado no fim do fetch para ir a pagina de login
+    
+    const [error,setError] = useState(false)// Sinaliza o erro no input de confirmação de senha
 
-    const [error,setError] = useState(false)
+    const [user,setUser] = useState(userData || {})// Armazena as infos dos inputs
+
+    // Altera visibilidade da senha e botão na função togglePasswordVisibility()
     const [passwordVisibility, setPasswordVisibility] = useState('password')
     const [passwordVisibilityBtn,setPasswordVisibilityBtn] = useState('bi bi-eye')
+    // Altera visibilidade da confirmação de senha e botão na função toggleCheckPasswordVisibility()
     const [checkPasswordVisibility, setCheckPasswordVisibility] = useState('password')
     const [checkPasswordVisibilityBtn,setCheckPasswordVisibilityBtn] = useState('bi bi-eye')
-    const [user,setUser] = useState(userData || {})
 
+    // Capta as informações dos inputs e armazena no state de usuario
     function handleEmail(e){
         setUser({...user, [e.target.name]: e.target.value})
         setUser({...user, id: e.target.value})
     }
-
     function handlePassword(e){
         setUser({...user, [e.target.name]: e.target.value})
     }
-
     function handleCheckPassword(e){
         setUser({...user, [e.target.name]: e.target.value})
         setError(false)
     }
 
+    // Valida a confirmação de senha
     function submit(e){
         e.preventDefault()
         if (user.confirmar_senha !== user.senha){
@@ -40,6 +44,29 @@ function Cadastro({userData}) {
         sendUser(user)
     }
 
+    // Altera a visibilidade da senha e o botão
+    function togglePasswordVisibility(){
+        if (passwordVisibility == 'password'){
+            setPasswordVisibility('text')
+            setPasswordVisibilityBtn('bi bi-eye-slash')
+        } else if (passwordVisibility == 'text'){
+            setPasswordVisibility('password')
+            setPasswordVisibilityBtn('bi bi-eye')
+        }
+    }
+
+    // Altera a visibilidade da confirmação senha e o botão
+    function toggleCheckPasswordVisibility(){
+        if (checkPasswordVisibility == 'password'){
+            setCheckPasswordVisibility('text')
+            setCheckPasswordVisibilityBtn('bi bi-eye-slash')
+        } else if (checkPasswordVisibility == 'text'){
+            setCheckPasswordVisibility('password')
+            setCheckPasswordVisibilityBtn('bi bi-eye')
+        }
+    }
+
+    // Manda o usuário criado para o backend
     function sendUser(user) {
         fetch("http://localhost:5000/usuarios", {
             method: 'POST',
@@ -53,26 +80,6 @@ function Cadastro({userData}) {
             })
         .catch((err) => console.log(err))
         console.log(user)
-    }
-
-    function togglePasswordVisibility(){
-        if (passwordVisibility == 'password'){
-            setPasswordVisibility('text')
-            setPasswordVisibilityBtn('bi bi-eye-slash')
-        } else if (passwordVisibility == 'text'){
-            setPasswordVisibility('password')
-            setPasswordVisibilityBtn('bi bi-eye')
-        }
-    }
-
-    function toggleCheckPasswordVisibility(){
-        if (checkPasswordVisibility == 'password'){
-            setCheckPasswordVisibility('text')
-            setCheckPasswordVisibilityBtn('bi bi-eye-slash')
-        } else if (checkPasswordVisibility == 'text'){
-            setCheckPasswordVisibility('password')
-            setCheckPasswordVisibilityBtn('bi bi-eye')
-        }
     }
 
     return (
