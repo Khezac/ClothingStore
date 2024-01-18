@@ -3,7 +3,8 @@ import Sobre from './components/pages/Sobre'
 import Atendimento from './components/pages/Atendimento'
 import Login from './components/pages/Login'
 import Cadastro from './components/pages/Cadastro'
-import ProductPage from "./components/pages/ProductPage";
+
+import ProductPage from "./components/products/ProductPage";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";

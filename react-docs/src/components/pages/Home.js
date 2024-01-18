@@ -23,9 +23,9 @@ function Home() {
           <h1>Mais Vendidos</h1>
           <h4>Coleção de verão</h4>
           <div className="d-flex flex-row align-items-center gap-3">
-            <ClothCard/>
-            <ClothCard/>
-            <ClothCard/>
+            <ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg'/>
+            <ClothCard id='2' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg'/>
+            <ClothCard id='3' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg'/>
           </div>
         </div>
       </section>

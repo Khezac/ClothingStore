@@ -1,0 +1,177 @@
+.product_page_wrapper{ 
+    background-color: #fffcf0;
+    padding:20px 100px 20px 100px;   
+    gap:50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product_container{
+    width:100%;
+    display: flex;
+    gap:20px;
+}
+
+/* Imagens do produto */
+.product_images_container{
+    width:610px;
+    height:450px;
+    padding:10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:10px;
+}
+
+.image_menu{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap:10px;
+}
+
+.image_menu_btn{
+    width:70px;
+    height:78px;    
+    cursor: pointer;
+}
+
+.main_image{
+    height:100%;
+    border-radius: 4px;
+    border: 8px solid #ebdeb5;
+}
+/* Imagens do produto */
+
+/* Informações do produto */
+.product_info_container{
+    background-color: #fff;
+    width:610px;
+    border-radius: 4px;
+    border: 8px solid #ebdeb5;
+    padding:20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.product_name{
+    font-size: 26px;
+    font-family:'Bungee', sans-serif;
+    color:black;
+}
+
+/* Tamanhos */
+.size_title, .sex_title{
+    font-size: 25px;
+    font-family:'Bungee', sans-serif;
+    color:black;
+}
+
+.size_radio_input_container,.sex_radio_input_container{
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+    padding: 0px 30px 0px 30px;
+}
+
+.size_radio_input_container input, .sex_radio_input_container input{
+    cursor: pointer;
+}
+
+.size_input_container,.sex_input_container{
+    height: 26px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.size_label,.sex_label{
+    font-size: 14px;
+    position: absolute; 
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.size_input{
+    all:unset;
+    background-color: #ebdeb5;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid transparent;
+    transition: border 0.3s ease-in-out;
+    border-radius: 5px;
+    width: 35px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.size_input:hover,.size_input:checked,.sex_input:hover,.sex_input:checked{
+    border:2px solid #0d6efd;
+    transition: border 0.3s ease-in-out;
+}
+/* Tamanhos */
+
+/* Gênero */
+.product_info_sex{
+    position: relative;
+}
+
+.sex_input{
+    all:unset;
+    background-color: #ebdeb5;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid transparent;
+    transition: border 0.3s ease-in-out;
+    border-radius: 5px;
+    width: 58px;
+    height: 26px;
+    cursor: pointer;
+    padding:0 3px 0 3px;
+}
+/* Gênero */
+
+/* Infos do produto */
+
+.buy_section{
+    width:100%;
+    height:104px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buy_price{
+    font-size: 50px;
+    color:black;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.buy_btn{
+    font-size: 30px;
+}
+
+.other_products_title{
+    font-size: 25px;
+    font-family:'Bungee', sans-serif;
+    color:black;
+}
+
+.other_products_list{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding:0;
+    margin-bottom:60px;
+}
+
+
+
+
+
