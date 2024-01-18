@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import SubmitBtn from '../form/SubmitBtn';
 import Input from "../form/Input";
 import { useEffect, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
 
 import styles from './Login.module.css'
+import Message from '../layout/Message';
 
 function Login() {
 
@@ -54,8 +55,15 @@ function Login() {
         }
     }
 
+    const location = useLocation()
+    let message = ''
+    if(location.state){
+        message = location.state.message
+    }
+
     return (
         <div className={styles.login_wrapper}>
+            {message && <Message type='success' msg={message}/>}
             <h1>Login</h1>
             {/* <div className={styles.error}>Usuario ou senha incorreto!</div> */}
             <form onSubmit={submit} className={styles.form_wrapper}>

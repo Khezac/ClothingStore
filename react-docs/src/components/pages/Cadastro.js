@@ -76,7 +76,8 @@ function Cadastro({userData}) {
         .then((resp) => resp.json())
         .then((data) => {
                 console.log(data)
-                navigate("/login")
+                const state = { message: "Usuário criado com sucesso!" };
+                navigate("/login", {state})
             })
         .catch((err) => console.log(err))
         console.log(user)
