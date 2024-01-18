@@ -31,6 +31,10 @@
     margin-bottom: 0;
 }
 
+.list li i{
+    font-size: 30px;
+}
+
 .list_nav_options{
     display: flex;
     align-items: center;
