@@ -82,3 +82,7 @@
 .search_bar:hover {
     background-color: #dbdbdb;
 }
+
+ul a{
+    text-decoration: none;
+}

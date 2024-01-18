@@ -19,6 +19,16 @@
       "id": "4@4",
       "senha": "4",
       "confirmar_senha": "4"
+    },
+    {
+      "id": "teste@testeteste",
+      "senha": "123456",
+      "confirmar_senha": "123456"
+    },
+    {
+      "id": "teste@teste.com",
+      "senha": "123456",
+      "confirmar_senha": "123456"
     }
   ],
   "produtos": [
