@@ -11,7 +11,9 @@ function Login() {
 
     const [checkUser, setCheckUser] = useState([])// Cria um usuário para validação com a API
     const [users, setUsers] = useState([])// Armazena os usuários da API
-    const [showError,setShowError] = useState(false)
+    const [showError, setShowError] = useState(false)
+    const [passwordVisibility, setPasswordVisibility] = useState('password')
+    const [passwordVisibilityBtn, setPasswordVisibilityBtn] = useState('bi bi-eye')
 
     const navigate = useNavigate()// redirecionará a pessoa pra uma outra page caso o login seja completo
 
@@ -51,15 +53,15 @@ function Login() {
         const userPassword = element.senha;
 
         if (userId === checkUserId && userPassword === checkUserPassword) {
-            const state = { status:'logado' }
-            navigate('/', {state})
+            const state = { status: 'logado' }
+            navigate('/', { state })
             console.log(state)
-        } else if (index === array.length -1) {
+        } else if (index === array.length - 1) {
             setShowError(true)
             const timer = setTimeout(() => {
                 setShowError(false)
             }, 3000);
-            return ()=> clearTimeout(timer)
+            return () => clearTimeout(timer)
         }
     }
 
@@ -70,6 +72,16 @@ function Login() {
         message = location.state.message
     }
 
+    function togglePasswordVisibility(){
+        if (passwordVisibility === 'password'){
+            setPasswordVisibility('text')
+            setPasswordVisibilityBtn('bi bi-eye-slash')
+        } else if (passwordVisibility === 'text'){
+            setPasswordVisibility('password')
+            setPasswordVisibilityBtn('bi bi-eye')
+        }
+    }
+
     return (
         <div className={styles.login_wrapper}>
             {message && <Message type='success' msg={message} />}
@@ -77,7 +89,10 @@ function Login() {
             <h1>Login</h1>
             <form onSubmit={submit} className={styles.form_wrapper}>
                 <Input type='email' name='email' placeholder='Insira seu e-mail...' label='Usuário' onChange={handleEmail} />
-                <Input type='password' name='senha' placeholder='Insira sua senha...' label='Senha' onChange={handlePassword} />
+                <div className={styles.input_container}>
+                    <Input type={passwordVisibility} name='senha' placeholder='Insira sua senha...' label='Senha' onChange={handlePassword} />
+                    <i className={passwordVisibilityBtn} style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}></i>
+                </div>
                 <SubmitBtn />
                 <Link to='/alterarsenha1'>Esqueci minha senha</Link>
             </form>

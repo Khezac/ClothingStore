@@ -20,3 +20,15 @@
     flex-direction: column;
     gap:25px;
 }
+
+.input_container{
+    position: relative;
+    font-size: 14px;
+}
+
+.input_container i{
+    position:absolute;
+    z-index: 3;
+    right: 5%;
+    bottom: 20%;
+}
