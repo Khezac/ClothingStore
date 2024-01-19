@@ -45,11 +45,6 @@ function Home() {
           <h1>Mais Vendidos</h1>
           <h4>Coleção de verão</h4>
           <div className="d-flex flex-row align-items-center gap-3">
-<<<<<<< Updated upstream
-            <ClothCard/>
-            <ClothCard/>
-            <ClothCard/>
-=======
             {produtos && (
               <>
                 <ClothCard
@@ -73,7 +68,6 @@ function Home() {
                 />
               </>
             )}
->>>>>>> Stashed changes
           </div>
         </div>
       </section>
