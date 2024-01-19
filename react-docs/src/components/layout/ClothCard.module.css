@@ -35,11 +35,34 @@
     border: 8px solid #ebdeb5;
 }
 
+.product_card_name_container{
+    width:196px;
+    height:200px;
+    position: absolute;
+    bottom:0;
+    padding:6px;
+    margin:0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
 .product_card_name{
     position: absolute;
     font-family:'Bungee', sans-serif;
     color:#ebdeb5;
     text-shadow: 0px 0px 10px black;
+    margin:0;
+    bottom:24px;
+}
+
+.product_card_description{
+    position: absolute;
+    font-family:'Bungee', sans-serif;
+    color:#ebdeb5;
+    text-shadow: 0px 0px 10px black;
+    margin:0;
 }
 
 .buy_wrapper{
@@ -55,8 +78,3 @@
     cursor: pointer;
 }
 
-.buy_wrapper span{
-    font-family:'Bungee', sans-serif;
-    color:#ebdeb5;
-    text-shadow: 0px 0px 10px black;
-}

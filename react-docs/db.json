@@ -1,1 +1,27 @@
-{}
+{
+  "usuarios": [
+    {
+      "id": "1@1",
+      "senha": "1",
+      "confirmar_senha": "1"
+    },
+    {
+      "id": "2@2",
+      "senha": "2",
+      "confirmar_senha": "2"
+    },
+    {
+      "id": "3@3",
+      "senha": "3",
+      "confirmar_senha": "3"
+    },
+    {
+      "id": "4@4",
+      "senha": "4",
+      "confirmar_senha": "4"
+    }
+  ],
+  "produtos": [
+    {}
+  ]
+}
