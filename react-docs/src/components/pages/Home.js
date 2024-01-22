@@ -50,12 +50,14 @@ function Home() {
                   name={produtos[0].name}
                   description={produtos[0].description}
                   img={produtos[0].imgs.img1}
+                  link='produtos'
                 />
                 <ClothCard
                   id={produtos[1].id}
                   name={produtos[1].name}
                   description={produtos[1].description}
                   img={produtos[1].imgs.img1}
+                  link='produtos'
                 />
               </>
             )}
