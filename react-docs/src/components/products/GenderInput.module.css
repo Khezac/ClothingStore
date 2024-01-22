@@ -1,0 +1,34 @@
+.gender_input_container{
+    height: 26px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gender_label{
+    font-size: 14px;
+    position: absolute; 
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.gender_input{
+    all:unset;
+    background-color: #ebdeb5;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid transparent;
+    transition: border 0.3s ease-in-out;
+    border-radius: 5px;
+    width: 58px;
+    height: 26px;
+    cursor: pointer;
+    padding:0 3px 0 3px;
+}
+
+.gender_input:hover,.gender_input:checked{
+    border:2px solid #0d6efd;
+    transition: border 0.3s ease-in-out;
+}

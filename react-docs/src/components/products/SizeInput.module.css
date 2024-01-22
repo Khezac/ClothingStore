@@ -1,0 +1,33 @@
+.size_input_container{
+    height: 26px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.size_label{
+    font-size: 14px;
+    position: absolute; 
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.size_input{
+    all:unset;
+    background-color: #ebdeb5;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid transparent;
+    transition: border 0.3s ease-in-out;
+    border-radius: 5px;
+    width: 35px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.size_input:hover,.size_input:checked{
+    border:2px solid #0d6efd;
+    transition: border 0.3s ease-in-out;
+}

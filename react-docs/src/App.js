@@ -25,7 +25,7 @@ function App() {
           <Route path="/alterarsenha1" element={<AlterarSenha1/>}/>
           <Route path="/alterarsenha2" element={<AlterarSenha2/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
-          <Route path="/produtos" element={<ProductPage/>}/>
+          <Route path="/produtos/:id" element={<ProductPage/>}/>
         </Routes>
       <Footer/>
     </Router>
