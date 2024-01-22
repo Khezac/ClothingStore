@@ -2,14 +2,14 @@ import styles from './ProductPage.module.css'
 import ClothCard from '../layout/ClothCard'
 
 function ProductPage() {
+
     return (
         <div className={styles.product_page_wrapper}>
             <div className={styles.product_container}>
                 <div className={styles.product_images_container}>
                     <ul className={styles.image_menu}>
                         <li><img className={styles.image_menu_btn} src='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' alt='camisa_preta' /></li>
-                        <li><img className={styles.image_menu_btn} src='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' alt='camisa_preta' /></li>
-                        <li><img className={styles.image_menu_btn} src='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' alt='camisa_preta' /></li>
+                        <li><img className={styles.image_menu_btn} src='https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ=' alt='camisa_preta' /></li>
                     </ul>
                     <img src='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' className={styles.main_image} alt='camisa_preta' />
                 </div>

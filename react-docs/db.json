@@ -19,9 +19,31 @@
       "id": "4@4",
       "senha": "4",
       "confirmar_senha": "4"
+    },
+    {
+      "id": "khezac1@gmail.com",
+      "senha": "ondmpskej1",
+      "confirmar_senha": "ondmpskej1"
     }
   ],
   "produtos": [
-    {}
+    {
+      "id": "1",
+      "name": "Camisa Básica",
+      "description": "Cor Preta",
+      "imgs":{
+        "img1": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
+        "img2": "https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ="
+      }
+    },
+    {
+      "id": "2",
+      "name": "Camisa Polo",
+      "description": "Cor Preta",
+      "imgs":{
+        "img1": "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/vdtkq3crxafm3pw703ni.webp",
+        "img2": "https://img.freepik.com/fotos-gratis/homem-vestindo-camisa-em-branco_23-2149347508.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705363200&semt=ais"
+      }
+    }
   ]
 }

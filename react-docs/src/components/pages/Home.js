@@ -32,7 +32,6 @@ function Home() {
     }, 1)
   }, [])
 
-
   return (
     <div className={styles.home_container}>
       <section>
@@ -51,19 +50,12 @@ function Home() {
                   name={produtos[0].name}
                   description={produtos[0].description}
                   img={produtos[0].imgs.img1}
-                  link='produtos'
                 />
                 <ClothCard
                   id={produtos[1].id}
                   name={produtos[1].name}
                   description={produtos[1].description}
-                  img={produtos[0].imgs.img1}
-                />
-                <ClothCard
-                  id={produtos[2].id}
-                  name={produtos[2].name}
-                  description={produtos[2].description}
-                  img={produtos[0].imgs.img1}
+                  img={produtos[1].imgs.img1}
                 />
               </>
             )}
