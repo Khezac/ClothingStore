@@ -36,24 +36,10 @@
     cursor: pointer;
 }
 
-.image_menu_btn:hover{
-    border:2px solid #ebdeb5;
-    border-radius: 3px;
-}
-
-.main_image_container{
-    max-width: 347px;
-    width: 347px;
-    max-height: 430px;
-    height: 430px;
+.main_image{
+    height:100%;
     border-radius: 4px;
     border: 8px solid #ebdeb5;
-}
-
-.main_image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 /* Imagens do produto */
 
@@ -61,7 +47,6 @@
 .product_info_container{
     background-color: #fff;
     width:610px;
-    min-width:525px;
     border-radius: 4px;
     border: 8px solid #ebdeb5;
     padding:20px;
@@ -77,24 +62,24 @@
 }
 
 /* Tamanhos */
-.size_title, .gender_title{
+.size_title, .sex_title{
     font-size: 25px;
     font-family:'Bungee', sans-serif;
     color:black;
 }
 
-.size_radio_input_container,.gender_radio_input_container{
+.size_radio_input_container,.sex_radio_input_container{
     display: flex;
     flex-direction: row;
     gap:30px;
     padding: 0px 30px 0px 30px;
 }
 
-.size_radio_input_container input, .gender_radio_input_container input{
+.size_radio_input_container input, .sex_radio_input_container input{
     cursor: pointer;
 }
 
-.size_input_container,.gender_input_container{
+.size_input_container,.sex_input_container{
     height: 26px;
     position: relative;
     display: flex;
@@ -102,7 +87,7 @@
     justify-content: center;
 }
 
-.size_label,.gender_label{
+.size_label,.sex_label{
     font-size: 14px;
     position: absolute; 
     font-weight: 500;
@@ -123,18 +108,18 @@
     cursor: pointer;
 }
 
-.size_input:hover,.size_input:checked,.gender_input:hover,.gender_input:checked{
+.size_input:hover,.size_input:checked,.sex_input:hover,.sex_input:checked{
     border:2px solid #0d6efd;
     transition: border 0.3s ease-in-out;
 }
 /* Tamanhos */
 
 /* Gênero */
-.product_info_gender{
+.product_info_sex{
     position: relative;
 }
 
-.gender_input{
+.sex_input{
     all:unset;
     background-color: #ebdeb5;
     display:flex;
@@ -150,21 +135,14 @@
 }
 /* Gênero */
 
-/* Infos do produto /// */
+/* Infos do produto */
 
-/* Buy section */
 .buy_section{
     width:100%;
     height:104px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    align-items: center;
-}
-
-.price_section{
-    display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
@@ -175,38 +153,10 @@
     margin-bottom: 0;
 }
 
-.buy_button_container{
-    display: flex;
-    align-items: center;
-    gap:17px;
-}
-
-.buy_amount_container{
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.buy_amount_input_container{
-    background-color: #ebdeb5;
-    border-radius: 5px;;
-    width:30px;
-    height:30px;
-}
-
-.buy_amount{
-    background-color: transparent;
-    width:55px;
-    height:30px;
-    border:none;
-    outline: none;
-    padding: 10px;;
-}
-
 .buy_btn{
     font-size: 30px;
 }
-/* Buy section /// */
+
 .other_products_title{
     font-size: 25px;
     font-family:'Bungee', sans-serif;

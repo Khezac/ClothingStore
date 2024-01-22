@@ -36,10 +36,6 @@ Seção coleções:
 Faixa separadora:
 - Faixa de cor mais escura do que o header.
 
-Seção de cadastro para receber mais informações promocionais:
-- Cadastro do email
-- Cadastro do telefone
-
 Faixa separadora:
 - Fazer uma faixa de cor mais escura do que o header.
 

@@ -1,0 +1,50 @@
+.cadastro_wrapper{
+    width:100%;
+    height:500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap:20px;
+}
+
+.cadastro_wrapper h1{
+    font-family:'Bungee', sans-serif;
+    color:#000000;
+}
+
+.form_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.checkpassword_container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.password_error{
+    background-color: rgb(156, 32, 32);
+    color:white;
+    padding:10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 2;
+    right: -255px;
+    top:35%;
+}
+
+.input_container{
+    position: relative;
+    font-size: 14px;
+}
+
+.input_container i{
+    position:absolute;
+    z-index: 3;
+    right: 5%;
+    bottom: 20%;
+}
