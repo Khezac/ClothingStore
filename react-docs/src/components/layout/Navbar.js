@@ -3,16 +3,28 @@ import logo from '../../../src/img/logo/logo1.png'
 
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 
 import Container from './Container';
 import Separator from './Separator';
 
 function Navbar() {
 
-    const location = useLocation()
-    let status = ''
-    if (location.state) {
-        status = location.state.status
+    const [visible, setVisible] = useState(false)
+
+    function toggleVisible() {
+        if (visible) {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+    }
+
+    const logged = JSON.parse(localStorage.getItem('checkUser'))
+
+    function logOff() {
+        localStorage.removeItem('checkUser')
+        window.location.reload()    
     }
 
     return (
@@ -35,20 +47,23 @@ function Navbar() {
                 </div>
                 <div className={styles.list_rightside_options}>
                     <ul className={styles.list}>
-                        {status === 'logado' && (
+                        {logged ? (
                             <>
                                 <li className={styles.list_item}><i className="bi bi-cart" /></li> {/*Carrinho*/}
-                                <li className={styles.list_item}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
+                                <li className={styles.list_item} onClick={toggleVisible}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
+                                {visible && (
+                                    <div className={styles.profile_menu}>
+                                        <p>Perfil</p>
+                                        <p onClick={logOff}>Sair</p>
+                                    </div>
+                                )}
                             </>
-                        )}
-                        {status === '' && (
+                        ) : (
                             <>
                                 <Link to='/login'><li className={styles.list_item}>Login</li></Link>
                                 <Link to='/cadastro'><li className={styles.list_item}>Cadastro</li></Link>
                             </>
                         )}
-
-
                     </ul>
                 </div>
             </nav>

@@ -53,9 +53,10 @@ function Login() {
         const userPassword = element.senha;
 
         if (userId === checkUserId && userPassword === checkUserPassword) {
+            localStorage.setItem('checkUser',JSON.stringify(checkUser))
             const state = { status: 'logado' }
             navigate('/', { state })
-            console.log(state)
+            window.location.reload() 
         } else if (index === array.length - 1) {
             setShowError(true)
             const timer = setTimeout(() => {

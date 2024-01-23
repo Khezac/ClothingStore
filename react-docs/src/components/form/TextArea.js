@@ -4,7 +4,7 @@ function TextArea({name,placeholder,label}){
     return(
         <>
         <label htmlFor={name}>{label}</label>
-        <textarea className={styles.text_area}type name={name} placeholder={placeholder}/>
+        <textarea className={styles.text_area} name={name} placeholder={placeholder}/>
         </>
     )
 }
