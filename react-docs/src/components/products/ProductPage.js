@@ -10,6 +10,7 @@ function ProductPage() {
 
     const { id } = useParams()
 
+    const [todosProdutos, setTodosProdutos] = useState([])
     const [produto, setProduto] = useState()
     const [mainImage, setMainImage] = useState()
     const [sizes, setSizes] = useState({})
@@ -31,17 +32,31 @@ function ProductPage() {
                 })
                 .catch((err) => console.log(err))
         }, 1)
+    }, [id])
+
+    useEffect(() => {
+        setTimeout(() => {
+            fetch(`http://localhost:5000/produtos`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then((resp) => resp.json())
+                .then((data) => {
+                    setTodosProdutos(data)
+                })
+                .catch((err) => console.log(err))
+        }, 1)
     }, [])
 
     function toggleMainImage(e) {
         if (mainImage !== e.target.src) {
-            setMainImage(e.target.src) 
+            setMainImage(e.target.src)
         }
     }
 
     let everySize = Object.keys(sizes)
     let everyGender = Object.keys(gender)
-    
 
     return (
         <div className={styles.product_page_wrapper}>
@@ -54,7 +69,7 @@ function ProductPage() {
                                 <li><img className={styles.image_menu_btn} src={produto.imgs.img2} alt='image_2' onClick={toggleMainImage} /></li>
                             </ul>
                             <div className={styles.main_image_container}>
-                            <img src={mainImage} className={styles.main_image} alt='image_selected'/>
+                                <img src={mainImage} className={styles.main_image} alt='image_selected' />
                             </div>
                         </>
                     )}
@@ -63,19 +78,19 @@ function ProductPage() {
                 <div className={styles.product_info_container}>
                     {produto && (
                         <>
-                        <p className={styles.product_name}>{produto.name} - {produto.description}</p>
+                            <p className={styles.product_name}>{produto.name} - {produto.description}</p>
                         </>
                     )}
                     <div>
                         <h3 className={styles.size_title}>Tamanhos:</h3>
                         <div className={styles.size_radio_input_container}>
-                        {everySize.length > 0 && everySize.map((everySize) => <SizeInput size={everySize}/>)}
+                            {everySize.length > 0 && everySize.map((everySize) => <SizeInput size={everySize} />)}
                         </div>
                     </div>
                     <div>
                         <h3 className={styles.sex_title}>Sexo:</h3>
                         <div className={styles.sex_radio_input_container}>
-                        {everyGender.length > 0 && everyGender.map((everyGender) => <GenderInput gender={everyGender}/>)}
+                            {everyGender.length > 0 && everyGender.map((everyGender) => <GenderInput gender={everyGender} />)}
                         </div>
                     </div>
                     <div className={styles.buy_section}>
@@ -87,11 +102,19 @@ function ProductPage() {
             <div className={styles.other_products}>
                 <h1 className={styles.other_products_title}>Outros Produtos:</h1>
                 <ul className={styles.other_products_list}>
-                    <li className={styles.other_products_item}><ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' /></li>
-                    <li className={styles.other_products_item}><ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' /></li>
-                    <li className={styles.other_products_item}><ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' /></li>
-                    <li className={styles.other_products_item}><ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' /></li>
-                    <li className={styles.other_products_item}><ClothCard id='1' name='camisa basica' img='https://i.pinimg.com/originals/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg' /></li>
+                    {todosProdutos ? (todosProdutos.map((array) => 
+                        <>
+                            <ClothCard
+                                id={array.id}
+                                name={array.name}
+                                description={array.description}
+                                img={array.imgs.img1}
+                                link='produtos/1'
+                            />
+                        </>
+                    )) : (
+                        <></>
+                    )}
                 </ul>
             </div>
         </div>

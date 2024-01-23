@@ -2,8 +2,8 @@ import styles from './Navbar.module.css'
 import logo from '../../../src/img/logo/logo1.png'
 
 import { FaSearch } from "react-icons/fa";
-import { Link, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 import Container from './Container';
 import Separator from './Separator';
