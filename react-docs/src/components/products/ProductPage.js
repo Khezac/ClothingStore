@@ -109,7 +109,7 @@ function ProductPage() {
                                 name={array.name}
                                 description={array.description}
                                 img={array.imgs.img1}
-                                link='produtos/1'
+                                link={`produtos/${array.id}`}
                             />
                         </>
                     )) : (

@@ -1,13 +1,14 @@
 .product_page_wrapper{ 
-    background-color: #fffcf0;
-    padding:20px 100px 20px 100px;   
+    background-color: #fffcf0; 
     gap:50px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0 30px 0;
 }
 
 .product_container{
-    width:100%;
     display: flex;
     gap:20px;
 }
@@ -63,8 +64,8 @@
 /* Informações do produto */
 .product_info_container{
     background-color: #fff;
-    width:524px;
-    max-width:524px;
+    width:500px;
+    max-width:500px;
     height:450px;
     max-height:450px;
     border-radius: 4px;
@@ -122,6 +123,10 @@
 
 .buy_btn{
     font-size: 30px;
+}
+
+.other_products{
+    width:1068px;
 }
 
 .other_products_title{
