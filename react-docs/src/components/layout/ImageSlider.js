@@ -1,10 +1,12 @@
-import autumn from '../../img/seasons_section1_background/autumn_section1.jpg'
-import spring from '../../img/seasons_section1_background/spring_section1.jpg'
-import summer from '../../img/seasons_section1_background/summer_section1.jpg'
-import winter from '../../img/seasons_section1_background/winter_section1.jpg'
+import autumn from '../../img/seasons_section1_background/raw/autumn_sect1_img.jpg'
+import spring from '../../img/seasons_section1_background/raw/spring_sect1_img.jpg'
+import summer from '../../img/seasons_section1_background/raw/summer_sect1_img.jpg'
+import winter from '../../img/seasons_section1_background/raw/winter_sect1_img.jpg'
+
+import styles from './ImageSlider.module.css'
 
 function ImageSlider() {
-    
+
     return (
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
@@ -13,18 +15,30 @@ function ImageSlider() {
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
             </div>
-            <div className="carousel-inner" style={{height:350 + 'px'}}>
-                <div className="carousel-item active">
-                    <img src={summer} style={{position: 'absolute' ,top:-75 + 'px'}} className="d-block w-100" alt="..."/>
+            <div className="carousel-inner w-100" style={{ height: 450 + 'px', position: 'relative' }}>
+                <div className="carousel-item active" style={{ height: 450 + 'px', position: 'relative' }}>
+                    <img src={summer} className={styles.carousel_slide} alt="..." />
+                    <div className={styles.slide_title_container}>
+                        <p className={styles.slide_title}>Coleção de verão</p>
+                    </div>
                 </div>
-                <div className="carousel-item">
-                    <img src={spring} style={{position: 'absolute' ,top:-70 + 'px'}} className="d-block w-100" alt="..."/>
+                <div className="carousel-item" style={{ height: 450 + 'px', position: 'relative' }}>
+                    <img src={spring} className={styles.carousel_slide} alt="..." />
+                    <div className={styles.slide_title_container}>
+                        <p className={styles.slide_title}>Coleção de primavera</p>
+                    </div>
                 </div>
-                <div className="carousel-item">
-                    <img src={winter} style={{position: 'absolute' ,top:-75 + 'px'}} className="d-block w-100" alt="..."/>
+                <div className="carousel-item" style={{ height: 450 + 'px', position: 'relative' }}>
+                    <img src={autumn} className={styles.carousel_slide} alt="..." />
+                    <div className={styles.slide_title_container}>
+                        <p className={styles.slide_title}>Coleção de outono</p>
+                    </div>
                 </div>
-                <div className="carousel-item">
-                    <img src={autumn} style={{position: 'absolute' ,top:-70 + 'px'}} className="d-block w-100" alt="..."/>
+                <div className="carousel-item" style={{ height: 450 + 'px', position: 'relative'}}>
+                    <img src={winter} className={styles.carousel_slide} style={{top:-30 + 'px' }} alt="..." />
+                    <div className={styles.slide_title_container}>
+                        <p className={styles.slide_title}>Coleção de inverno</p>
+                    </div>
                 </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
