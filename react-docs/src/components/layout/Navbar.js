@@ -49,11 +49,11 @@ function Navbar() {
                     <ul className={styles.list}>
                         {logged ? (
                             <>
-                                <li className={styles.list_item}><i className="bi bi-cart" /></li> {/*Carrinho*/}
+                                <li className={styles.list_item}><i className="bi bi-cart w-100 h-100" /></li> {/*Carrinho*/}
                                 <li className={styles.list_item} onClick={toggleVisible}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
                                 {visible && (
                                     <div className={styles.profile_menu}>
-                                        <p>Perfil</p>
+                                        <Link to='/profile'><p>Perfil</p></Link>
                                         <p onClick={logOff}>Sair</p>
                                     </div>
                                 )}
