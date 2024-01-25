@@ -2,13 +2,15 @@ import styles from './Navbar.module.css'
 import logo from '../../../src/img/logo/logo1.png'
 
 import { FaSearch } from "react-icons/fa";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
 import Container from './Container';
 import Separator from './Separator';
 
 function Navbar() {
+
+    const navigate = useNavigate()
 
     const [visible, setVisible] = useState(false)
 
@@ -24,7 +26,8 @@ function Navbar() {
 
     function logOff() {
         localStorage.removeItem('checkUser')
-        window.location.reload()    
+        navigate("/")
+        window.location.reload()
     }
 
     return (
@@ -49,7 +52,7 @@ function Navbar() {
                     <ul className={styles.list}>
                         {logged ? (
                             <>
-                                <li className={styles.list_item}><i className="bi bi-cart w-100 h-100" /></li> {/*Carrinho*/}
+                                <Link to='/profile'><li className={styles.list_item}><i className="bi bi-cart w-100 h-100" /></li></Link> {/*Carrinho*/}
                                 <li className={styles.list_item} onClick={toggleVisible}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
                                 {visible && (
                                     <div className={styles.profile_menu}>

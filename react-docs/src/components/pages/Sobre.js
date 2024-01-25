@@ -5,7 +5,6 @@ function Sobre() {
     return (
         <div className={styles.about_wrapper}>
             <div className={styles.about_container}>
-                <img className={styles.about_logo} src={logo} alt='sobre_logo'/>
                 <div className={styles.about_info}>
                     <p>
                         A <strong>ClothingStore</strong> é uma loja de roupas e acessórios com coleções variadas e diversas, onde a nossa prioridade é sempre oferecer o melhor atendimento e o maior conforto ao cliente, seja com relação a qualidade do produto ou em relação a praticidade de compra e contato.
@@ -14,6 +13,7 @@ function Sobre() {
                         Criado em 2024 por Khezac Khalleb.
                     </p>
                 </div>
+                <img className={styles.about_logo} src={logo} alt='sobre_logo'/>
             </div>
         </div>
     );

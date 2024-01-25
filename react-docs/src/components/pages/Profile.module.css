@@ -1,42 +1,38 @@
 .profile_wrapper{
     width:100%;
-    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    margin-top: -100px;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fffcf1;
+    padding: 40px;
+    gap:50px;
 }
 
-.personal_info_wrapper{
-    width:1100px;
-    border:1px solid black;
-    border-radius: 4px;    
-    display: flex;
-    flex-direction: row;
-    gap:30px;
-}
-
-.personal_info_container{
-    padding:40px;
-    background-color: #f3ebd2;
-    width:55%;
-    display: flex;
-    flex-direction: row;
-    gap:30px;
-    align-items: center;
-}
 
 h5,p{
     margin-bottom:0 ;
 }
 
-.personal_info{
-    height: 200px;
+/* Personal info section */
+.personal_info_wrapper{
+    width:1100px;
+    border-radius: 20px;
+    border: 8px solid #ebdeb5; 
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+}
+    
+.personal_info_container{
+    border-radius: 12px 0 0 12px;
+    padding:40px;
+    background-color: #fcedcd;
+    width:55%;
+    display: flex;
+    flex-direction: row;
     gap:30px;
+    align-items: center;
 }
 
 .profile_avatar_container{
@@ -48,11 +44,98 @@ h5,p{
     width:100%;
 }
 
-.edit_personal_info{
-    
+.personal_info{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:30px;
+}
+/* Personal info section */
+
+/* Location info section*/
+.location_info_wrapper{
+    border-radius: 0 10px 10px 0;
+    background-color: #ffe7b4;
+    width:46%;
+    padding:40px;
 }
 
+.location_info{
+    width:414px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:30px;
+    justify-content: center;
+}
+/* Location info section*/
+
+/* Cart section */
 .secondary_info_wrapper{
     display: flex;
     flex-direction: column;
+    gap:50px;
 }
+
+.table_title{
+    font-family:'Bungee', sans-serif;
+    color: #000000;
+}
+
+td,th{
+    border-right:3px solid #ebdeb5;
+    border-bottom:3px solid #ebdeb5;
+    text-align: center;
+}
+
+.cart_table_container{
+    width: 1100px;
+    border-radius: 5px;
+    border: 8px solid #ebdeb5;
+}
+
+.table_data{
+    background-color: #fff;
+}
+
+.cart_table{
+    width: 100%;
+}
+.cart_table_header{
+    background-color: #fcedcd;
+}
+.img_td{
+    width:170px;
+}
+.gender_td{
+    width:250px;
+}
+.size_td,.price_td,.amount_td{
+    width:100px;
+}
+.check_td{
+    width:30px;
+}
+
+.amount_selected,.amount_selected strong{
+    font-size: 20px;
+}
+/* Cart section */
+
+/* Order section */
+.order_table_container{
+    width: 1100px;
+    border-radius: 5px;
+    border: 8px solid #ebdeb5;
+}
+
+.order_table{
+    width: 100%;
+}
+
+.order_table_header{
+    background-color: #fcedcd;
+}
+/* Order section */
