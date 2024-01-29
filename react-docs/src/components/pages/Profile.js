@@ -1,6 +1,38 @@
 import styles from './Profile.module.css'
+import {useState, useEffect} from 'react'
 
 function Profile() {
+
+    const [pedidos,setPedidos] = useState({})
+
+    // Identifica o usuário que está online
+    const onlineUser = JSON.parse(localStorage.getItem("checkUser"))
+    const onlineUserId = onlineUser.id
+
+    // Pega as informaçoes da api do usuário que está online
+    useEffect(()=> {
+        setTimeout(()=> {
+            fetch(`http://localhost:5000/usuarios/${onlineUserId}`, {
+            method: "GET",
+            headers: {'Content-Type':'application/json',},
+        })
+        .then((resp) => resp.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err))
+    },3)},[])
+
+    // Pega os pedidos na api, deverá filtrar os pedidos que tiverem apenas o id de quem está online
+    // useEffect(()=> {
+    //     setTimeout(()=> {
+    //         fetch("http://localhost:5000/pedidos", {
+    //         method: "GET",
+    //         headers: {'Content-Type':'application/json',},
+    //     })
+    //     .then((resp) => resp.json())
+    //     .then((data) => console.log(data))
+    //     .catch((err) => console.log(err))
+    // },3)},[])
+
     return (
         <div className={styles.profile_wrapper}>
             <div className={styles.personal_info_wrapper}>
@@ -65,24 +97,20 @@ function Profile() {
                     <h2 className={styles.table_title}>Carrinho</h2>
                     <div className={styles.cart_table_container}>
                         <table className={styles.cart_table}>
-                            <tr className={styles.cart_table_header}>
-                                <th className={styles.check_td}> - </th>
-                                <th className={styles.img_td}>Imagem</th>
-                                <th className={styles.name_td}>Produto</th>
-                                <th className={styles.gender_td}>Sexo</th>
-                                <th className={styles.size_td}>Tamanho</th>
-                                <th className={styles.amount_td}>Quantidade</th>
-                                <th className={styles.price_td}>Preço</th>
-                            </tr>
-                            <tr className={styles.table_data}>
-                                <th className={styles.check_td}><input type='checkbox' /></th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            <tbody>
+                                <tr className={styles.cart_table_header}>
+                                    <th className={styles.check_td}> - </th>
+                                    <th className={styles.img_td}>Imagem</th>
+                                    <th className={styles.name_td}>Produto</th>
+                                    <th className={styles.gender_td}>Sexo</th>
+                                    <th className={styles.size_td}>Tamanho</th>
+                                    <th className={styles.amount_td}>Quantidade</th>
+                                    <th className={styles.price_td}>Preço</th>
+                                </tr>
+                                <tr className={styles.table_data}>
+                                    <td></td>{/* Aqui teremos que listar todos os pedidos do usuário online */}
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div>
@@ -94,18 +122,20 @@ function Profile() {
                     <h2 className={styles.table_title}>Pedidos</h2>
                     <div className={styles.order_table_container}>
                         <table className={styles.order_table}>
-                            <tr className={styles.order_table_header}>
-                                <th className={styles.img_td}>Imagem</th>
-                                <th className={styles.name_td}>Produto</th>
-                                <th className={styles.status_td}>Status</th>
-                                <th className={styles.details_td}>Detalhes</th>
-                            </tr>
-                            <tr className={styles.table_data}>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            <tbody>
+                                <tr className={styles.order_table_header}>
+                                    <th className={styles.img_td}>Imagem</th>
+                                    <th className={styles.name_td}>Produto</th>
+                                    <th className={styles.status_td}>Status</th>
+                                    <th className={styles.details_td}>Detalhes</th>
+                                </tr>
+                                <tr className={styles.table_data}>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
