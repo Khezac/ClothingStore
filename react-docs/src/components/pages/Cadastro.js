@@ -80,7 +80,6 @@ function Cadastro({userData}) {
                 navigate("/login", {state})
             })
         .catch((err) => console.log(err))
-        console.log(user)
     }
 
     return (
