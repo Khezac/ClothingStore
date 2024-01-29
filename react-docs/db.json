@@ -12,7 +12,6 @@
       "name": "Camisa Básica",
       "description": "Cor Preta",
       "imgs": {
-      "imgs": {
         "img1": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
         "img2": "https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ="
       },
@@ -33,7 +32,6 @@
       "id": 2,
       "name": "Camisa Polo",
       "description": "Cor Preta",
-      "imgs": {
       "imgs": {
         "img1": "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/vdtkq3crxafm3pw703ni.webp",
         "img2": "https://img.freepik.com/fotos-gratis/homem-vestindo-camisa-em-branco_23-2149347508.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705363200&semt=ais"
@@ -57,7 +55,6 @@
       "name": "Camisa Básica",
       "description": "Cor Preta",
       "imgs": {
-      "imgs": {
         "img1": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
         "img2": "https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ="
       },
@@ -76,56 +73,7 @@
     }
   ],
   "atendimento": [
-    {},
-    {
-      "nome": "João Gabriel",
-      "id": "joao@gabriel",
-      "telefone": "2233344445555",
-      "assunto": "AssuntoQualquer",
-      "details": "Descrição qualquer do assunto especificado."
-    },
-    {
-      "id": "wvJ-KNk"
-    },
-    {
-      "id": "5KujMyI"
-    },
-    {
-      "id": "iE2zylF"
-    },
-    {
-      "id": "tP0VMqR"
-    },
-    {
-      "id": "ixNDOxW"
-    },
-    {
-      "id": "Xv-cEA2"
-    },
-    {
-      "id": "VEhhAZO"
-    },
-    {
-      "id": "Kuwufxb"
-    },
-    {
-      "id": "4L8SOcv"
-    },
-    {
-      "id": "lNzaw9u"
-    },
-    {
-      "id": "L8jQN6U"
-    },
-    {
-      "nome": "awdasd",
-      "id": "2123123@12",
-      "telefone": "2223232323",
-      "assunto": "awdawd",
-      "details": "awdawd"
-    }
-  ]
-}
+    {}
   ],
   "pedidos": [
     {
@@ -136,42 +84,6 @@
       "id": "2c9ccdbe-9bc3-46d3-8477-3708d4814763",
       "genero": "Masculino",
       "quantidade": "1"
-    },
-    {
-      "tamanho": "PP",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "meuemail@gmail.com",
-      "id": "b0e8f97c-ac6c-4a95-a05d-54200340f52b",
-      "genero": "Feminino",
-      "quantidade": ""
-    },
-    {
-      "quantidade": "1",
-      "tamanho": "PP",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "meuemail@gmail.com",
-      "id": "d74aa858-e077-44dc-91dd-10c86a4cf4f3",
-      "genero": "Feminino"
-    },
-    {
-      "quantidade": "1",
-      "tamanho": "P",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "meuemail@gmail.com",
-      "id": "27664ebc-c20e-4622-bda6-17275506c8d5",
-      "genero": "Feminino"
-    },
-    {
-      "quantidade": "1",
-      "genero": "Feminino",
-      "tamanho": "P",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "meuemail@gmail.com",
-      "id": "63e00320-a078-494c-b23f-d6b246c30801"
     }
   ]
 }
