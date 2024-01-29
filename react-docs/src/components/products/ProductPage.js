@@ -5,17 +5,23 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SizeInput from './SizeInput'
 import GenderInput from './GenderInput'
+import { v4 as uuidv4 } from 'uuid';
 
 function ProductPage() {
-
+    // Pega o id da URL
     const { id } = useParams()
 
+    const randomId = uuidv4()
+
+    // States que armazenam todas as informações necessarias
     const [todosProdutos, setTodosProdutos] = useState([])
     const [produto, setProduto] = useState()
     const [mainImage, setMainImage] = useState()
     const [sizes, setSizes] = useState({})
     const [gender, setGender] = useState({})
+    const [preferences, setPreferences] = useState()
 
+    // Resgata as informações da API do produto especificado na URL
     useEffect(() => {
         setTimeout(() => {
             fetch(`http://localhost:5000/produtos/${id}`, {
@@ -34,6 +40,7 @@ function ProductPage() {
         }, 1)
     }, [id])
 
+    // Resgata as informações de todos os produtos da API e salva em states
     useEffect(() => {
         setTimeout(() => {
             fetch(`http://localhost:5000/produtos`, {
@@ -49,69 +56,122 @@ function ProductPage() {
         }, 1)
     }, [])
 
+    // Altera a imagem principal
     function toggleMainImage(e) {
         if (mainImage !== e.target.src) {
             setMainImage(e.target.src)
         }
     }
 
+    // Possibilita uso de metodos em objetos
     let everySize = Object.keys(sizes)
     let everyGender = Object.keys(gender)
+
+    // Capta qual usuário está online no momento
+    const user = JSON.parse(localStorage.getItem('checkUser'))
+    const userId = user.id
+
+    // Armazena as infos dos inputs nas states
+    function handleSize(e) {
+        setPreferences({
+            ...preferences,
+            [e.target.name]: e.target.value, 
+            "produto": produto.name,
+            "preco": produto.price,
+            "cliente": userId,
+            "id": randomId,
+        })
+    }
+    function handleGender(e) {
+        setPreferences({ ...preferences, [e.target.name]: e.target.value })
+    }
+    function handleAmount(e) {
+        setPreferences({ ...preferences, [e.target.name]: e.target.value })
+    }
+
+    function handleSubmit() {
+        sendPreferences(preferences)
+
+    }
+
+    // Envia as informações captadas para a API de pedidos
+    function sendPreferences(preferences) {
+
+        if (preferences.quantidade && preferences.tamanho && preferences.genero) {
+            fetch("http://localhost:5000/pedidos", {
+                method: 'POST',
+                headers: { 'Content-type': 'application/json', },
+                body: JSON.stringify(preferences),
+            })
+                .then((resp) => {resp.json()})
+                .then((data) => {
+                    console.log(data)
+                })
+                .catch((err) => console.log(err))
+        } else {
+            alert('Por favor, preencha todas as opções necessárias!')
+        }
+    }
 
     return (
         <div className={styles.product_page_wrapper}>
             <div className={styles.product_container}>
-                <div className={styles.product_images_container}>
-                    {produto && (
-                        <>
-                            <ul className={styles.image_menu}>
-                                <li><img className={styles.image_menu_btn} src={produto.imgs.img1} alt='image_1' onClick={toggleMainImage} /></li>
-                                <li><img className={styles.image_menu_btn} src={produto.imgs.img2} alt='image_2' onClick={toggleMainImage} /></li>
-                            </ul>
-                            <div className={styles.main_image_container}>
-                                <img src={mainImage} className={styles.main_image} alt='image_selected' />
-                            </div>
-                        </>
-                    )}
+                {produto && (
+                    <div className={styles.product_images_container}>
+                        <ul className={styles.image_menu}>
+                            <li key="img1"><img className={styles.image_menu_btn} src={produto.imgs.img1} alt='image_1' onClick={toggleMainImage} /></li>
+                            <li key="img2"><img className={styles.image_menu_btn} src={produto.imgs.img2} alt='image_2' onClick={toggleMainImage} /></li>
+                        </ul>
+                        <div className={styles.main_image_container}>
+                            <img src={mainImage} className={styles.main_image} alt='image_selected' />
+                        </div>
+                    </div>
+                )}
 
-                </div>
+
                 <div className={styles.product_info_container}>
                     {produto && (
-                        <>
-                            <p className={styles.product_name}>{produto.name} - {produto.description}</p>
-                        </>
+                        <div>
+                            <p className={styles.product_name} >{produto.name} - {produto.description}</p>
+                        </div>
                     )}
                     <div>
-                        <h3 className={styles.size_title}>Tamanhos:</h3>
-                        <div className={styles.size_radio_input_container}>
-                            {everySize.length > 0 && everySize.map((everySize) => <SizeInput size={everySize} />)}
+                        <h3 key="size_title" className={styles.size_title}>Tamanhos:</h3>
+                        <div key="size_radio_input_container" className={styles.size_radio_input_container}>
+                            {everySize.length > 0 && everySize.map((array, element) => <SizeInput key={element} size={array} onChange={handleSize} />)}
                         </div>
                     </div>
                     <div>
                         <h3 className={styles.sex_title}>Sexo:</h3>
                         <div className={styles.sex_radio_input_container}>
-                            {everyGender.length > 0 && everyGender.map((everyGender) => <GenderInput gender={everyGender} />)}
+                            {everyGender.length > 0 && everyGender.map((array, element) => <GenderInput key={element} gender={array} onChange={handleGender} />)}
                         </div>
                     </div>
                     <div className={styles.buy_section}>
                         <p className={styles.buy_price}>{produto && (<strong>{produto.price}</strong>)}</p>
-                        <button className={`${styles.buy_btn} btn btn-primary`}>Comprar</button>
+                        <div className={styles.amount_wrapper}></div>
+                        <label className={styles.amount_title} htmlFor='amount'>Quantidade:</label>
+                        <div className={styles.amount_counter_container}>
+                            <input className={styles.amount_counter} required name='quantidade' type="number" min='1' placeholder='1' onChange={handleAmount} />
+                        </div>
+                        <button className={`${styles.buy_btn} btn btn-primary`} onClick={handleSubmit}>Comprar</button>
                     </div>
                 </div>
             </div>
             <div className={styles.other_products}>
-                <h1 className={styles.other_products_title}>Outros Produtos:</h1>
-                <ul className={styles.other_products_list}>
-                    {todosProdutos ? (todosProdutos.map((array) => 
-                        <>
+                <h1 className={styles.other_products_title} key='other_products_title'>Outros Produtos:</h1>
+                <ul className={styles.other_products_list} key='other_products_list'>
+                    {todosProdutos ? (todosProdutos.map((array, element) =>
+                        <div key={`product_key_${element}`}>
                             <ClothCard
                                 id={array.id}
                                 name={array.name}
                                 description={array.description}
                                 img={array.imgs.img1}
-                                link='produtos/1'
+                                link={`produtos/${array.id}`}
+                                key={element}
                             />
-                        </>
+                        </div>
                     )) : (
                         <></>
                     )}
