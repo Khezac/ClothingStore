@@ -56,7 +56,7 @@ function Navbar() {
                                 <li className={styles.list_item} onClick={toggleVisible}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
                                 {visible && (
                                     <div className={styles.profile_menu}>
-                                        <Link to='/profile'><p>Perfil</p></Link>
+                                        <Link to='/profile' onClick={toggleVisible}><p>Perfil</p></Link>
                                         <p onClick={logOff}>Sair</p>
                                     </div>
                                 )}
