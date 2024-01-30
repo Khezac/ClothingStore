@@ -1,6 +1,6 @@
-import styles from './CartListItem.module.css'
+import styles from './CartTableItem.module.css'
 
-function CartListItem({ key,img, produto, genero, tamanho, quantidade, preco }) {
+function CartTableItem({ key,img, produto, genero, tamanho, quantidade, preco }) {
     return (
         <div key={key}>
             <th className={styles.check_td}><input type='checkbox'/></th>
@@ -14,4 +14,4 @@ function CartListItem({ key,img, produto, genero, tamanho, quantidade, preco }) 
     )
 }
 
-export default CartListItem
+export default CartTableItem

@@ -3,7 +3,10 @@
     {
       "id": "1@1",
       "senha": "1",
-      "confirmar_senha": "1"
+      "confirmar_senha": "1",
+      "nome": "Gabriel",
+      "telefone": "22222222222",
+      "cep": "28605562"
     }
   ],
   "produtos": [
@@ -83,6 +86,15 @@
       "cliente": "meuemail@gmail.com",
       "id": "2c9ccdbe-9bc3-46d3-8477-3708d4814763",
       "genero": "Masculino",
+      "quantidade": "1"
+    },
+    {
+      "tamanho": "PP",
+      "produto": "Camisa Polo",
+      "preco": "39,90",
+      "cliente": "1@1",
+      "id": "6ef8e3fb-39e0-4f67-8ebb-47ed2388a332",
+      "genero": "Feminino",
       "quantidade": "1"
     }
   ]
