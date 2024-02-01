@@ -7,6 +7,21 @@
       "nome": "Gabriel",
       "telefone": "22222222222",
       "cep": "28605562"
+    },
+    {
+      "id": "2@2",
+      "senha": "2",
+      "confirmar_senha": "2",
+      "telefone": "2299012951",
+      "cep": "28605562",
+      "nome": "Lucas Carlos"
+    },
+    {
+      "id": "email@email",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "nome": "Douglinha",
+      "cep": "28605562"
     }
   ],
   "produtos": [
@@ -29,7 +44,7 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "29,90"
+      "price": "29.90"
     },
     {
       "id": 2,
@@ -51,7 +66,7 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "39,90"
+      "price": "39.90"
     },
     {
       "id": 3,
@@ -72,30 +87,78 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "29,90"
+      "price": "29.90"
     }
   ],
   "atendimento": [
     {}
   ],
   "pedidos": [
+    {},
     {
-      "tamanho": "PP",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "meuemail@gmail.com",
-      "id": "2c9ccdbe-9bc3-46d3-8477-3708d4814763",
-      "genero": "Masculino",
-      "quantidade": "1"
+      "tamanho": "P",
+      "genero": "Feminino",
+      "quantidade": "3",
+      "img": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
+      "produto": "Camisa Básica",
+      "detalhes": "Cor Preta",
+      "preco_unid": "29.90",
+      "preco_pedido": "89.70",
+      "id": "2c483d33-8b27-421c-a828-43b5147dc98f",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
     },
     {
-      "tamanho": "PP",
-      "produto": "Camisa Polo",
-      "preco": "39,90",
-      "cliente": "1@1",
-      "id": "6ef8e3fb-39e0-4f67-8ebb-47ed2388a332",
+      "tamanho": "P",
+      "genero": "Masculino",
+      "quantidade": "1",
+      "img": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
+      "produto": "Camisa Básica",
+      "detalhes": "Cor Preta",
+      "preco_unid": "29.90",
+      "preco_pedido": "29.90",
+      "id": "642747cd-e854-4d76-bcb1-5860bcd51fa2",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
+    },
+    {
+      "tamanho": "M",
       "genero": "Feminino",
-      "quantidade": "1"
+      "quantidade": "2",
+      "img": "https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ=",
+      "produto": "Camisa Básica",
+      "detalhes": "Cor Preta",
+      "preco_unid": "29.90",
+      "preco_pedido": "59.80",
+      "id": "fb96709f-4ecc-4a69-8c8a-7d9d65b53825",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
+    },
+    {
+      "tamanho": "M",
+      "genero": "Unissex",
+      "quantidade": "3",
+      "img": "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/vdtkq3crxafm3pw703ni.webp",
+      "produto": "Camisa Polo",
+      "detalhes": "Cor Preta",
+      "preco_unid": "39.90",
+      "preco_pedido": "119.70",
+      "id": "00ef1796-88c2-4798-b947-ebdea4020c73",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
+    },
+    {
+      "tamanho": "G",
+      "genero": "Unissex",
+      "quantidade": "4",
+      "img": "https://img.freepik.com/fotos-gratis/homem-vestindo-camisa-em-branco_23-2149347508.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705363200&semt=ais",
+      "produto": "Camisa Polo",
+      "detalhes": "Cor Preta",
+      "preco_unid": "39.90",
+      "preco_pedido": "159.60",
+      "id": "c756ef0b-cf9f-4100-a6c5-7651b61ab7c0",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
     }
   ]
 }

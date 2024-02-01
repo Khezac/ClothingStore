@@ -63,14 +63,6 @@ h5,p{
     max-height: 24px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-    -moz-appearance: textfield;
-}
 /* Personal info section */
 
 /* Location info section*/
@@ -131,7 +123,9 @@ td,th{
     background-color: #fcedcd;
 }
 .img_td{
-    width:170px;
+    width:100px;
+    height:117px;
+    object-fit: cover;
 }
 .gender_td{
     width:250px;
@@ -142,9 +136,29 @@ td,th{
 .check_td{
     width:30px;
 }
+.delete_td{
+    width:50px;
+}
+
+.delete_td_img{
+    width:30px;
+    cursor: pointer;
+}
+.delete_td_img:hover{
+    opacity: 0.5;
+}
+
+.selected_and_price{
+    display: flex;
+    justify-content: space-between;
+}
 
 .amount_selected,.amount_selected strong{
     font-size: 20px;
+}
+
+.amount_selected_price{
+    font-size: 30px;
 }
 /* Cart section */
 

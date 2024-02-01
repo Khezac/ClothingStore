@@ -20,6 +20,24 @@
     gap:20px;
 }
 
+.form_container{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
+.left_info{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.right_info{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
 .checkpassword_container{
     position: relative;
     display: flex;
@@ -33,7 +51,8 @@
     border-radius: 5px;
     position: absolute;
     z-index: 2;
-    right: -255px;
+    right: 255px;
+    width:200px;
     top:35%;
 }
 

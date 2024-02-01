@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './ClothCard.module.css'
 
-function ClothCard({ name, img, id, description, link }) {
+function ClothCard({ name, img, id, description, link, onclick}) {
     return (
         <div className={styles.product_card_container} id={id}>
             <div className={styles.product_card_wrapper}>
@@ -12,7 +12,7 @@ function ClothCard({ name, img, id, description, link }) {
                 </div>
                 <div className={styles.buy_wrapper}>
                     <Link to={`/${link}`}>
-                        <button type="button" className="btn btn-info">Comprar</button>
+                        <button type="button" className="btn btn-info" onClick={onclick}>Comprar</button>
                     </Link>
                 </div>
             </div>

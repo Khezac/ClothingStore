@@ -2,15 +2,20 @@ import styles from './ProductPage.module.css'
 import ClothCard from '../layout/ClothCard'
 
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import SizeInput from './SizeInput'
 import GenderInput from './GenderInput'
 import { v4 as uuidv4 } from 'uuid';
+import { useLocation } from 'react-router-dom'
 
 function ProductPage() {
     // Pega o id da URL
     const { id } = useParams()
 
+    // Redireciona para outra pagina
+    const navigate = useNavigate()
+
+    // Gera id aleatório para os pedidos
     const randomId = uuidv4()
 
     // States que armazenam todas as informações necessarias
@@ -69,48 +74,99 @@ function ProductPage() {
 
     // Capta qual usuário está online no momento
     const user = JSON.parse(localStorage.getItem('checkUser'))
-    const userId = user.id
+    let status = ''
+    if (user !== null) {
+        status = 'logado'
+    }
 
     // Armazena as infos dos inputs nas states
     function handleSize(e) {
-        setPreferences({
-            ...preferences,
-            [e.target.name]: e.target.value, 
-            "produto": produto.name,
-            "preco": produto.price,
-            "cliente": userId,
-            "id": randomId,
-        })
+        setPreferences({ ...preferences, [e.target.name]: e.target.value })
     }
     function handleGender(e) {
         setPreferences({ ...preferences, [e.target.name]: e.target.value })
     }
+
+    let produtoPreco, produtoQuantidade ,orderPrice
     function handleAmount(e) {
-        setPreferences({ ...preferences, [e.target.name]: e.target.value })
+        if (status === 'logado') {
+            produtoPreco = parseFloat(produto.price)
+            produtoQuantidade = parseInt(e.target.value)
+            orderPrice = produtoPreco * produtoQuantidade
+            orderPrice = orderPrice.toFixed(2)
+            setPreferences({
+                ...preferences,
+                [e.target.name]: e.target.value,
+                "img": mainImage,
+                "produto": produto.name,
+                "detalhes": produto.description,
+                "preco_unid": produto.price,
+                "preco_pedido": orderPrice,
+                "id": randomId,
+                "cliente": user.id,
+                "status": "Aguardando Pagamento",
+            })
+        } else {
+            produtoPreco = parseFloat(produto.price)
+            produtoQuantidade = parseInt(e.target.value)
+            orderPrice = produtoPreco * produtoQuantidade
+            orderPrice = orderPrice.toFixed(2)
+            setPreferences({
+                ...preferences,
+                [e.target.name]: e.target.value,
+                "img": mainImage,
+                "produto": produto.name,
+                "detalhes": produto.description,
+                "preco_unid": produto.price,
+                "preco_pedido": orderPrice,
+                "id": randomId,
+                "status": "Aguardando Pagamento",
+            })
+        }
     }
 
     function handleSubmit() {
-        sendPreferences(preferences)
+        if (status === 'logado') {
+            validateInputs()
+        } else {
+            navigate('/cadastro')
+        }
+    }
 
+    function validateInputs() {
+        if (preferences !== undefined) {
+            if (preferences.quantidade && preferences.tamanho && preferences.genero) {
+                if (preferences.quantidade < 100) {
+                    sendPreferences(preferences)
+                } else {
+                    alert('Limite de unidades: 99')
+                }
+            } else {
+                alert('É necessário preencher todas as opções!')
+            }
+        } else {
+            alert('Por favor, preencha todas as opções necessárias!')
+        }
     }
 
     // Envia as informações captadas para a API de pedidos
     function sendPreferences(preferences) {
-
-        if (preferences.quantidade && preferences.tamanho && preferences.genero) {
-            fetch("http://localhost:5000/pedidos", {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json', },
-                body: JSON.stringify(preferences),
+        fetch("http://localhost:5000/pedidos", {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json', },
+            body: JSON.stringify(preferences),
+        })
+            .then((resp) => { resp.json() })
+            .then((data) => {
+                console.log(data)
+                window.location.reload()
             })
-                .then((resp) => {resp.json()})
-                .then((data) => {
-                    console.log(data)
-                })
-                .catch((err) => console.log(err))
-        } else {
-            alert('Por favor, preencha todas as opções necessárias!')
-        }
+            .catch((err) => console.log(err))
+    }
+
+    function reloadPage() {
+        setTimeout(() => window.location.reload(), 1)
+
     }
 
     return (
@@ -148,11 +204,13 @@ function ProductPage() {
                         </div>
                     </div>
                     <div className={styles.buy_section}>
-                        <p className={styles.buy_price}>{produto && (<strong>{produto.price}</strong>)}</p>
+                        {produto && (
+                            <p className={styles.buy_price}><strong>{produto.price}</strong></p>
+                        )}
                         <div className={styles.amount_wrapper}></div>
                         <label className={styles.amount_title} htmlFor='amount'>Quantidade:</label>
                         <div className={styles.amount_counter_container}>
-                            <input className={styles.amount_counter} required name='quantidade' type="number" min='1' placeholder='1' onChange={handleAmount} />
+                            <input className={styles.amount_counter} required name='quantidade' type="number" min='1' max='99' placeholder='1' onChange={handleAmount} />
                         </div>
                         <button className={`${styles.buy_btn} btn btn-primary`} onClick={handleSubmit}>Comprar</button>
                     </div>
@@ -170,6 +228,7 @@ function ProductPage() {
                                 img={array.imgs.img1}
                                 link={`produtos/${array.id}`}
                                 key={element}
+                                onclick={reloadPage}
                             />
                         </div>
                     )) : (

@@ -1,6 +1,7 @@
-import CartTableItem from '../layout/CartTableItem'
 import styles from './Profile.module.css'
 import { useState, useEffect } from 'react'
+
+import trashIcon from '../../img/icones/126468.png'
 
 function Profile() {
 
@@ -9,7 +10,7 @@ function Profile() {
     const [pedidos, setPedidos] = useState([])
     const [cepInfo, setCepInfo] = useState([])
     const [profileForm, setProfileForm] = useState(false)
-
+    const [totalValue, setTotalValue] = useState(0)
     // Identifica o usuário que está online
     const onlineUser = JSON.parse(localStorage.getItem("checkUser"))
     const onlineUserId = onlineUser.id
@@ -27,7 +28,7 @@ function Profile() {
                     localStorage.setItem('onlineUserCep', data.cep)
                 })
                 .catch((err) => console.log(err))
-        }, 1)
+        }, 3)
     }, [])
 
     // Altera visualização do Formulário de edição do perfil
@@ -52,7 +53,7 @@ function Profile() {
     // Manda as informações modificadas para a API
     function concluirEdição() {
         if (editedUser.cep) {
-            if (editedUser.cep.length !== 8) {
+            if (editedUser.cep.length !== 8 || isNaN(editedUser.cep)) {
                 alert("O CEP inserido está errado ou incompleto.")
                 return
             }
@@ -74,20 +75,23 @@ function Profile() {
     }
 
     // Define o cep do usuário que está online
-    const onlineCep = JSON.parse(localStorage.getItem('onlineUserCep'))
+    let onlineCep = ''
+    if (user.cep) {
+        onlineCep = JSON.parse(localStorage.getItem('onlineUserCep'))
+    }
 
     // Pega infos da API dos correios e armazena em state
     useEffect(() => {
-        fetch(`https://viacep.com.br/ws/${onlineCep}/json/`, {
-            method: "GET",
-            headers: { 'Content-Type': 'application/json', },
-        })
-            .then((resp) => resp.json())
-            .then((data) => setCepInfo(data))
-            .catch((err) => console.log(err))
-    }, [])
-
-
+        setTimeout(() => {
+            fetch(`https://viacep.com.br/ws/${onlineCep}/json/`, {
+                method: "GET",
+                headers: { 'Content-Type': 'application/json', },
+            })
+                .then((resp) => resp.json())
+                .then((data) => setCepInfo(data))
+                .catch((err) => console.log(err))
+        }, 4)
+    }, [onlineCep])
 
     // Pega os pedidos na api, deverá filtrar os pedidos que tiverem apenas o id de quem está online
     useEffect(() => {
@@ -102,7 +106,33 @@ function Profile() {
         }, 3)
     }, [])
 
+    // Filtra os pedidos do usuário online no momento
     const pedidosUser = pedidos.filter(pedidos => (pedidos.cliente === user.id))
+
+    // Valor total dos itens selecionados no carrinho
+    let valorInput = 0
+    function handleCheck(e) {
+        valorInput += parseFloat(e.target.value)
+        if (e.target.checked) {
+            setTotalValue(prev => { return prev += valorInput; })
+        } else if (e.target.checked === false) {
+            setTotalValue(prev => { return prev -= valorInput; })   
+        }
+    }
+
+    // Deleta determinado pedido
+    function handleDelete(e) {
+        fetch(`http://localhost:5000/pedidos/${e.target.id}`, {
+            method: "DELETE",
+            headers: { 'Content-Type': 'application/json', },
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+                window.location.reload()
+            })
+            .catch((err) => console.log(err))
+    }
 
     return (
         <div className={styles.profile_wrapper}>
@@ -124,8 +154,10 @@ function Profile() {
                                         placeholder='Primeiro Nome'
                                         maxLength="16"
                                     />
-                                ) : (
+                                ) : user.nome ? (
                                     <p>{user.nome}</p>
+                                ) : (
+                                    <p>Sem informação</p>
                                 )}
                             </div>
                             <div className={styles.contact_container}>
@@ -141,8 +173,10 @@ function Profile() {
                                         onChange={handleTelephone}
                                         placeholder='55999990000'
                                     />
-                                ) : (
+                                ) : user.telefone ? (
                                     <p>{user.telefone}</p>
+                                ) : (
+                                    <p>Sem informação</p>
                                 )}
                             </div>
                             <div className={styles.cep_search_container}>
@@ -164,8 +198,10 @@ function Profile() {
                                         onChange={handleCEP}
                                         placeholder='00000111'
                                     />
-                                ) : (
+                                ) : user.cep ? (
                                     <p>{user.cep}</p>
+                                ) : (
+                                    <p>Sem informação</p>
                                 )}
                             </div>
                             {profileForm ? (
@@ -233,38 +269,58 @@ function Profile() {
                 <div className={styles.cart_table_wrapper}>
                     <h2 className={styles.table_title}>Carrinho</h2>
                     <div className={styles.cart_table_container}>
-                        <table className={styles.cart_table}>
-                            <tbody>
-                                <tr className={styles.cart_table_header}>
+                        <table className={styles.cart_table} key='cart_table'>
+                            <tbody key="cart_table_body">
+                                <tr className={styles.cart_table_header} key='cart_header_tr'>
                                     <th className={styles.check_td}> - </th>
                                     <th className={styles.img_td}>Imagem</th>
                                     <th className={styles.name_td}>Produto</th>
                                     <th className={styles.gender_td}>Sexo</th>
                                     <th className={styles.size_td}>Tamanho</th>
                                     <th className={styles.amount_td}>Quantidade</th>
-                                    <th className={styles.price_td}>Preço</th>
+                                    <th className={styles.price_td}>Preço/unid</th>
+                                    <th className={styles.price_td}>Preço/pedido</th>
+                                    <th className={styles.delete_td}>Excluir</th>
                                 </tr>
-                                {pedidosUser ? (pedidosUser.map((array) => (
+                                {pedidosUser != '' ? (pedidosUser.map((array, index) => (
                                     <tr className={styles.table_data} key={array.id}>
-                                        <td className={styles.check_td}><input type='checkbox' /></td>
-                                        <td> - </td>
+                                        <td className={styles.check_td}><input type='checkbox' value={array.preco_pedido} id={index} onClick={handleCheck} /></td>
+                                        <td><img className={styles.img_td} src={array.img} /></td>
                                         <td>{array.produto}</td>
                                         <td>{array.genero}</td>
                                         <td>{array.tamanho}</td>
                                         <td>{array.quantidade}</td>
-                                        <td>{array.preco}</td>
+                                        <td>R$ {array.preco_unid} </td>
+                                        <td>R$ {array.preco_pedido} </td>
+                                        <td className={styles.delete_td}><img id={array.id} className={styles.delete_td_img} onClick={handleDelete} src={trashIcon} /></td>
                                     </tr>
                                 ))) : (
-                                    <tr>
-                                        <td></td>
+                                    <tr className={styles.table_data} key='cart_table_data'>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                     </tr>
                                 )}
                             </tbody>
                         </table>
                     </div>
-                    <div>
-                        <p className={styles.amount_selected}><strong>Selecionados: </strong>5</p>
-                        <button className="btn btn-primary">Finalizar Compra</button>
+                    <div className={styles.selected_and_price}>
+                        <div>
+                            <p className={styles.amount_selected}><strong>Selecionados: </strong>5</p>
+                            <button className="btn btn-primary">Finalizar Compra</button>
+                        </div>
+                        <div>
+                            {totalValue ? (
+                                <p className={styles.amount_selected_price}><strong>Valor Total: R$ </strong>{totalValue.toFixed(2)}</p>
+                            ) : (
+                                <p className={styles.amount_selected_price}><strong>Valor Total: R$ </strong>00.00</p>
+                            )}
+
+                        </div>
                     </div>
                 </div>
                 <div className={styles.order_table_wrapper}>
@@ -272,18 +328,27 @@ function Profile() {
                     <div className={styles.order_table_container}>
                         <table className={styles.order_table}>
                             <tbody>
-                                <tr className={styles.order_table_header}>
+                                <tr className={styles.order_table_header} key='order_table_header'>
                                     <th className={styles.img_td}>Imagem</th>
                                     <th className={styles.name_td}>Produto</th>
-                                    <th className={styles.status_td}>Status</th>
                                     <th className={styles.details_td}>Detalhes</th>
+                                    <th className={styles.status_td}>Status</th>
                                 </tr>
-                                <tr className={styles.table_data}>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
+                                {pedidosUser != '' ? (pedidosUser.map((array) => (
+                                    <tr className={styles.table_data} key={array.id}>
+                                        <td><img className={styles.img_td} src={array.img} /></td>
+                                        <td>{array.produto}</td>
+                                        <td>{array.detalhes} - {array.genero} - {array.tamanho}</td>
+                                        <td>{array.status}</td>
+                                    </tr>
+                                ))) : (
+                                    <tr className={styles.table_data} key="order_table_data">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>
