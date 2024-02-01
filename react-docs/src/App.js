@@ -8,6 +8,7 @@ import Cadastro from './components/pages/Cadastro'
 import AlterarSenha2 from "./components/pages/AlterarSenha2";
 import AlterarSenha1 from "./components/pages/AlterarSenha1";
 import Profile from "./components/pages/Profile"
+import BuyPage from "./components/products/BuyPage";
 
 import ProductPage from "./components/products/ProductPage";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/sobre" element={<Sobre/>}/>
           <Route path="/atendimento" element={<Atendimento/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/comprar/:id" element={<BuyPage/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
           <Route path="/alterarsenha1" element={<AlterarSenha1/>}/>

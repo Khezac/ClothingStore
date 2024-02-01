@@ -160,6 +160,7 @@ function ProductPage() {
             .then((data) => {
                 console.log(data)
                 window.location.reload()
+                navigate(`/comprar/${preferences.id}`)
             })
             .catch((err) => console.log(err))
     }

@@ -22,6 +22,14 @@
       "confirmar_senha": "123",
       "nome": "Douglinha",
       "cep": "28605562"
+    },
+    {
+      "id": "augustoalves@gmail.com",
+      "senha": "augustoalves",
+      "confirmar_senha": "augustoalves",
+      "nome": "Lucas Carlos",
+      "cep": "28605562",
+      "telefone": "2299012951"
     }
   ],
   "produtos": [
@@ -88,10 +96,41 @@
         "Unissex": "Unissex"
       },
       "price": "29.90"
+    },
+    {
+      "id": 4,
+      "name": "Bermuda",
+      "description": "Florida",
+      "imgs": {
+        "img1": "https://img.olx.com.br/images/77/779313237462026.webp",
+        "img2": "https://img.olx.com.br/images/66/660329594509316.webp"
+      },
+      "sizes": {
+        "P": "P",
+        "M": "M",
+        "G": "G",
+        "GG": "GG"
+      },
+      "gender": {
+        "Masculino": "Masculino",
+        "Feminino": "Feminino",
+        "Unissex": "Unissex"
+      },
+      "price": "59.90"
     }
   ],
   "atendimento": [
-    {}
+    {},
+    {
+      "nome": "Augusto Alves Da Silva Barros",
+      "id": "augustoalves@gmail.com",
+      "telefone": "2299012951",
+      "assunto": "Assunto Qualquer",
+      "details": "Este assunto não tem nada de importante nem nada de interessante mas estou enviando para testar a API.:D"
+    },
+    {
+      "id": "Php7Jrr"
+    }
   ],
   "pedidos": [
     {},

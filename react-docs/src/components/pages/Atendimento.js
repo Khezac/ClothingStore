@@ -7,7 +7,6 @@ import SubmitBtn from '../form/SubmitBtn'
 import Message from '../layout/Message';
 
 import { useState } from 'react'
-import { useLocation } from "react-router-dom";
 
 function Atendimento() {
     // Armazenamento das informações em state
@@ -48,7 +47,12 @@ function Atendimento() {
     }
     function handleSubmit(e){
         e.preventDefault()
-        sendContactAttempt(contactAttempt)
+        if(contactAttempt.id){
+            sendContactAttempt(contactAttempt)
+        } else {
+            alert("Preencha todos os campos!")
+        }
+        
     }
 
     return (

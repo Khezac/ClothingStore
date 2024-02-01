@@ -1,19 +1,24 @@
 import styles from './Navbar.module.css'
 import logo from '../../../src/img/logo/logo1.png'
 
-import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
 import Container from './Container';
 import Separator from './Separator';
+import SearchBar from './SearchBar';
+import SearchResult from './SearchResult';
 
 function Navbar() {
 
     const navigate = useNavigate()
 
-    const [visible, setVisible] = useState(false)
+    // Resultado da barra de pesquisa e alternancia de visibilidade 
+    const [results,setResults] = useState([])
+    const [toggleFocus, setToggleFocus] = useState(false)
 
+    // Altera a visibilidade do menu de perfil
+    const [visible, setVisible] = useState(false)
     function toggleVisible() {
         if (visible) {
             setVisible(false)
@@ -22,8 +27,10 @@ function Navbar() {
         }
     }
 
+    // Checa se tem alguém logado e altera a visibilidade dos botões de perfil e de carrinho
     const logged = JSON.parse(localStorage.getItem('checkUser'))
 
+    // Desloga a conta do site
     function logOff() {
         localStorage.removeItem('checkUser')
         navigate("/")
@@ -39,10 +46,8 @@ function Navbar() {
                 <div className={styles.list_nav_options}>
                     <ul className={styles.list}>
                         <li className={styles.search_bar_wrapper}>
-                            <div className={styles.search_bar}>
-                                <input type='text' placeholder='Pesquise por um produto...' />
-                                <a href='/' className={styles.btn_search}><FaSearch /></a>
-                            </div>
+                            <SearchBar setToggleFocus={setToggleFocus} setResults={setResults}/>
+                            {results && results.length > 0 && toggleFocus && <SearchResult results={results} />}
                         </li>
                         <Link to='/sobre'><li className={styles.list_item}>Sobre</li></Link>
                         <Link to='/atendimento'><li className={styles.list_item}>Atendimento</li></Link>

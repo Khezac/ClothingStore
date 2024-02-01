@@ -1,0 +1,21 @@
+.results_list{
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px #00000062;
+    margin-top: 10px;
+    padding:10px;
+    position: absolute;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search_result{
+    cursor: pointer;
+padding: 10px;
+border-radius: 20px;
+}
+
+.search_result:hover{
+    background-color:#e7e7e7 ;
+}
