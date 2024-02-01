@@ -68,7 +68,6 @@ function Profile() {
         })
             .then((resp) => resp.json())
             .then((data) => {
-                console.log(data)
                 window.location.reload()
             })
             .catch((err) => console.log(err))
@@ -128,7 +127,6 @@ function Profile() {
         })
             .then((resp) => resp.json())
             .then((data) => {
-                console.log(data)
                 window.location.reload()
             })
             .catch((err) => console.log(err))
@@ -283,7 +281,7 @@ function Profile() {
                                     <th className={styles.delete_td}>Excluir</th>
                                 </tr>
                                 {pedidosUser != '' ? (pedidosUser.map((array, index) => (
-                                    <tr className={styles.table_data} key={array.id}>
+                                    <tr className={styles.table_data} key={`cart_table_data_${index}`}>
                                         <td className={styles.check_td}><input type='checkbox' value={array.preco_pedido} id={index} onClick={handleCheck} /></td>
                                         <td><img className={styles.img_td} src={array.img} /></td>
                                         <td>{array.produto}</td>
@@ -326,16 +324,16 @@ function Profile() {
                 <div className={styles.order_table_wrapper}>
                     <h2 className={styles.table_title}>Pedidos</h2>
                     <div className={styles.order_table_container}>
-                        <table className={styles.order_table}>
-                            <tbody>
+                        <table className={styles.order_table} key="order_table">
+                            <tbody key="order_table_body">
                                 <tr className={styles.order_table_header} key='order_table_header'>
                                     <th className={styles.img_td}>Imagem</th>
                                     <th className={styles.name_td}>Produto</th>
                                     <th className={styles.details_td}>Detalhes</th>
                                     <th className={styles.status_td}>Status</th>
                                 </tr>
-                                {pedidosUser != '' ? (pedidosUser.map((array) => (
-                                    <tr className={styles.table_data} key={array.id}>
+                                {pedidosUser != '' ? (pedidosUser.map((array,index) => (
+                                    <tr className={styles.table_data} key={`order_table_data_${index}`}>
                                         <td><img className={styles.img_td} src={array.img} /></td>
                                         <td>{array.produto}</td>
                                         <td>{array.detalhes} - {array.genero} - {array.tamanho}</td>
