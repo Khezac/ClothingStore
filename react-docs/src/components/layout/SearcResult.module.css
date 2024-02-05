@@ -8,12 +8,13 @@
     position: absolute;
     max-height: 400px;
     overflow-y: auto;
+    z-index: 2;
 }
 
 .search_result{
     cursor: pointer;
-padding: 10px;
-border-radius: 20px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .search_result:hover{

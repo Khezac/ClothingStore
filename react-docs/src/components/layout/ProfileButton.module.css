@@ -1,0 +1,9 @@
+.list_item{
+    font-family:'Bungee', sans-serif;
+    color: #000000;
+    cursor: pointer;
+}
+
+.list_item:hover,.profile_menu p:hover{
+    opacity: 50%;
+}

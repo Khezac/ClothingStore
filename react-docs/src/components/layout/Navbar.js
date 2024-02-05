@@ -8,6 +8,8 @@ import Container from './Container';
 import Separator from './Separator';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
+import ProfileButton from './ProfileButton';
+import ProfileMenu from './ProfileMenu';
 
 function Navbar() {
 
@@ -16,26 +18,10 @@ function Navbar() {
     // Resultado da barra de pesquisa e alternancia de visibilidade 
     const [results,setResults] = useState([])
     const [toggleFocus, setToggleFocus] = useState(false)
-
-    // Altera a visibilidade do menu de perfil
-    const [visible, setVisible] = useState(false)
-    function toggleVisible() {
-        if (visible) {
-            setVisible(false)
-        } else {
-            setVisible(true)
-        }
-    }
+    const [toggleProfile, setToggleProfile] = useState(false)
 
     // Checa se tem alguém logado e altera a visibilidade dos botões de perfil e de carrinho
     const logged = JSON.parse(localStorage.getItem('checkUser'))
-
-    // Desloga a conta do site
-    function logOff() {
-        localStorage.removeItem('checkUser')
-        navigate("/")
-        window.location.reload()
-    }
 
     return (
         <Container className={styles.nav_container}>
@@ -58,12 +44,9 @@ function Navbar() {
                         {logged ? (
                             <>
                                 <Link to='/profile'><li className={styles.list_item}><i className="bi bi-cart w-100 h-100" /></li></Link> {/*Carrinho*/}
-                                <li className={styles.list_item} onClick={toggleVisible}><i className="bi bi-person-circle" /></li> {/*Perfil*/}
-                                {visible && (
-                                    <div className={styles.profile_menu}>
-                                        <Link to='/profile' onClick={toggleVisible}><p>Perfil</p></Link>
-                                        <p onClick={logOff}>Sair</p>
-                                    </div>
+                                <ProfileButton setToggleProfile={setToggleProfile}/>{/*Perfil*/}
+                                {toggleProfile && (
+                                    <ProfileMenu setToggleProfile={setToggleProfile}/>
                                 )}
                             </>
                         ) : (
