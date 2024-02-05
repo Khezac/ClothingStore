@@ -23,11 +23,11 @@ function Footer(){
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Ajuda</strong></li>
                         <Link to='/atendimento'><li className={styles.item}>Trocas e Devoluções</li></Link>
-                        <Link to='/login'><li className={styles.item}>Entregas</li></Link>
-                        <Link to='/login'><li className={styles.item}>Minha Conta</li></Link>
-                        <Link to='/login'><li className={styles.item}>Meus pedidos</li></Link>
-                        <Link to='/login'><li className={styles.item}>Pagamentos</li></Link>
-                        <Link to='/login'><li className={styles.item}>Cancelamentos</li></Link>
+                        <Link to='/profile'><li className={styles.item}>Entregas</li></Link>
+                        <Link to='/profile'><li className={styles.item}>Minha Conta</li></Link>
+                        <Link to='/profile'><li className={styles.item}>Meus pedidos</li></Link>
+                        <Link to='/profile'><li className={styles.item}>Pagamentos</li></Link>
+                        <Link to='/profile'><li className={styles.item}>Cancelamentos</li></Link>
                     </ul>
                     <ul className={styles.footer_list}>
                         <li className={styles.item}><strong>Central de Atendimento</strong></li>
