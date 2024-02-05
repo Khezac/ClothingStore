@@ -2,6 +2,7 @@ import styles from './Profile.module.css'
 import { useState, useEffect } from 'react'
 
 import trashIcon from '../../img/icones/126468.png'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 function Profile() {
 
@@ -11,6 +12,9 @@ function Profile() {
     const [cepInfo, setCepInfo] = useState([])
     const [profileForm, setProfileForm] = useState(false)
     const [totalValue, setTotalValue] = useState(0)
+
+    const navigate = useNavigate()
+
     // Identifica o usuário que está online
     const onlineUser = JSON.parse(localStorage.getItem("checkUser"))
     const onlineUserId = onlineUser.id
@@ -67,7 +71,7 @@ function Profile() {
             body: JSON.stringify(state)
         })
             .then((resp) => resp.json())
-            .then((data) => {
+            .then(() => {
                 window.location.reload()
             })
             .catch((err) => console.log(err))
@@ -75,7 +79,7 @@ function Profile() {
 
     // Define o cep do usuário que está online
     let onlineCep = ''
-    if (user.cep) {
+    if (user !== '') {
         onlineCep = JSON.parse(localStorage.getItem('onlineUserCep'))
     }
 
@@ -119,6 +123,14 @@ function Profile() {
         }
     }
 
+    let selectedOrders = []
+    function handleBuy(){
+        const selectedInputs = document.querySelectorAll('input[type="checkbox"]:checked')
+        selectedOrders = Array.from(selectedInputs).map(x => x.name)
+
+        navigate('/comprar')
+    }
+        
     // Deleta determinado pedido
     function handleDelete(e) {
         fetch(`http://localhost:5000/pedidos/${e.target.id}`, {
@@ -282,7 +294,7 @@ function Profile() {
                                 </tr>
                                 {pedidosUser != '' ? (pedidosUser.map((array, index) => (
                                     <tr className={styles.table_data} key={`cart_table_data_${index}`}>
-                                        <td className={styles.check_td}><input type='checkbox' value={array.preco_pedido} id={index} onClick={handleCheck} /></td>
+                                        <td className={styles.check_td}><input type='checkbox' name={array.id} value={array.preco_pedido} id={index} onClick={handleCheck} /></td>
                                         <td><img className={styles.img_td} src={array.img} /></td>
                                         <td>{array.produto}</td>
                                         <td>{array.genero}</td>
@@ -309,7 +321,7 @@ function Profile() {
                     <div className={styles.selected_and_price}>
                         <div>
                             <p className={styles.amount_selected}><strong>Selecionados: </strong>5</p>
-                            <button className="btn btn-primary">Finalizar Compra</button>
+                            <button className="btn btn-primary" onClick={handleBuy}>Finalizar Compra</button>
                         </div>
                         <div>
                             {totalValue ? (

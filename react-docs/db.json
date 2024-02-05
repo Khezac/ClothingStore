@@ -198,6 +198,19 @@
       "id": "c756ef0b-cf9f-4100-a6c5-7651b61ab7c0",
       "cliente": "2@2",
       "status": "Aguardando Pagamento"
+    },
+    {
+      "tamanho": "PP",
+      "genero": "Feminino",
+      "quantidade": "1",
+      "img": "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/vdtkq3crxafm3pw703ni.webp",
+      "produto": "Camisa Polo",
+      "detalhes": "Cor Preta",
+      "preco_unid": "39.90",
+      "preco_pedido": "39.90",
+      "id": "5deeb4a6-cf52-45b0-9a36-5fa2c4441823",
+      "cliente": "2@2",
+      "status": "Aguardando Pagamento"
     }
   ]
 }

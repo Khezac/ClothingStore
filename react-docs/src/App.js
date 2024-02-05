@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Home from "./components/pages/Home";
 import Sobre from './components/pages/Sobre'
@@ -16,6 +17,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 function App() {
+
   return (
     <Router>
       <Navbar/>        
@@ -24,7 +26,7 @@ function App() {
           <Route path="/sobre" element={<Sobre/>}/>
           <Route path="/atendimento" element={<Atendimento/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/comprar/:id" element={<BuyPage/>}/>
+          <Route path="/comprar" element={<BuyPage/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
           <Route path="/alterarsenha1" element={<AlterarSenha1/>}/>

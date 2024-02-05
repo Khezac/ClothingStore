@@ -30,42 +30,33 @@
     gap:20px;
 }
 
-.product_maininfo{
-    max-width:390px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.product_img{
-    height:120px;
-}
-
-.product_title{
+.product_info_title{
     font-family:'Bungee', sans-serif;
     color:#000000;
     font-size: 24px;
 }
 
-.product_info_list{
-    height:116px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap:20px;
+td, th {
+    border:none;
+}
+
+.table_header{
+    padding:4px;
+    font-family:'Bungee', sans-serif;
+    color:#000000;
+    font-size: 14px;
 }
 
 .list_label{
     font-family:'Bungee', sans-serif;
     color:#000000;
 }
+
 /* Informações do produto */
 
 .buy_info{
     width: 580px;
-    height:100%;
-    border-right: 1px solid;    
+    height:100%; 
     background-color: #c9c9c9;
     display: flex;
     flex-direction: column;
@@ -74,14 +65,31 @@
     gap:20px;
 }
 
+.endereço_title_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+}
+
 .endereço_title{
     font-family:'Bungee', sans-serif;
     color:#000000;
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.edit_endereço_form{
+    max-width:132px;
+    height: 24px;
+}
+
+.edit_button{
+    width:20px;
+    cursor: pointer;
 }
 
 .buy_info_list{
-    width:280px;
+    width:391px;
     height:116px;
     display: flex;
     flex-direction: column;
@@ -93,11 +101,15 @@
 .destinatario_container{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap:20px;
     width:280px;
 }
 
 .price_container{
     display: flex;
+    align-items: center;
     gap:20px;
+    font-size: 24px;
 }
