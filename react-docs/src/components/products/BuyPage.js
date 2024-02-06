@@ -1,6 +1,5 @@
 import styles from './BuyPage.module.css'
 import { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
 
 function BuyPage({ buyProducts }) {
 
@@ -89,6 +88,7 @@ function BuyPage({ buyProducts }) {
         buyProducts.map((element)=>{
             eachOrderPrice = parseFloat(element.preco_pedido)
             everyOrderPrice += eachOrderPrice
+            return strOrderPrice
         })
         strOrderPrice = everyOrderPrice.toFixed(2)
         setFinalPrice(strOrderPrice)
@@ -113,7 +113,7 @@ function BuyPage({ buyProducts }) {
                         {buyProducts && buyProducts.map((element,index) => (
                             <tbody key={`product_table_body_${index}`}>
                                 <tr className={styles.table_data} key={`cart_table_data_${index}`}>
-                                    <td><img className={styles.img_td} src={element.img} /></td>
+                                    <td><img className={styles.img_td} src={element.img} alt={`imagem_do_produto_${index}`}/></td>
                                     <td>{element.produto}</td>
                                     <td>{element.genero}</td>
                                     <td>{element.tamanho}</td>
