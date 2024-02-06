@@ -2,7 +2,7 @@ import styles from './Profile.module.css'
 import { useState, useEffect } from 'react'
 
 import trashIcon from '../../img/icones/126468.png'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Profile({setBuyProducts}) {
 
@@ -34,7 +34,7 @@ function Profile({setBuyProducts}) {
                 })
                 .catch((err) => console.log(err))
         }, 3)
-    }, [])
+    }, [onlineUserId])
 
     // Altera visualização do Formulário de edição do perfil
     function editarPerfil() {
@@ -218,7 +218,7 @@ function Profile({setBuyProducts}) {
                                 )}
                             </div>
                             <div className={styles.cep_search_container}>
-                                <a href='https://www2.correios.com.br/sistemas/buscacep/buscacep.cfm' target='_blank'>Não sei meu cep.</a>
+                                <a href='https://www2.correios.com.br/sistemas/buscacep/buscacep.cfm' rel='noreferrer' target='_blank'>Não sei meu cep.</a>
                             </div>
                             <div className={styles.email_container}>
                                 <h5 className={styles.email}><strong>Email: </strong></h5>
@@ -320,17 +320,17 @@ function Profile({setBuyProducts}) {
                                     <th className={styles.price_td}>Preço/pedido</th>
                                     <th className={styles.delete_td}>Excluir</th>
                                 </tr>
-                                {pedidosUser != '' ? (pedidosUser.map((array, index) => (
+                                {pedidosUser !== '' ? (pedidosUser.map((array, index) => (
                                     <tr className={styles.table_data} key={`cart_table_data_${index}`}>
                                         <td className={styles.check_td}><input type='checkbox' name={array.id} value={array.preco_pedido} id={index} onClick={handleCheck} /></td>
-                                        <td><img className={styles.img_td} src={array.img} /></td>
+                                        <td><img className={styles.img_td} src={array.img} alt={`imagem_do_produto_${index}`}/></td>
                                         <td>{array.produto}</td>
                                         <td>{array.genero}</td>
                                         <td>{array.tamanho}</td>
                                         <td>{array.quantidade}</td>
                                         <td>R$ {array.preco_unid} </td>
                                         <td>R$ {array.preco_pedido} </td>
-                                        <td className={styles.delete_td}><img id={array.id} className={styles.delete_td_img} onClick={handleDelete} src={trashIcon} /></td>
+                                        <td className={styles.delete_td}><img id={array.id} alt={`lata_de_lixo_${index}`} className={styles.delete_td_img} onClick={handleDelete} src={trashIcon} /></td>
                                     </tr>
                                 ))) : (
                                     <tr className={styles.table_data} key='cart_table_data'>
@@ -377,9 +377,9 @@ function Profile({setBuyProducts}) {
                                     <th className={styles.details_td}>Detalhes</th>
                                     <th className={styles.status_td}>Status</th>
                                 </tr>
-                                {pedidosUser != '' ? (pedidosUser.map((array, index) => (
+                                {pedidosUser !== '' ? (pedidosUser.map((array, index) => (
                                     <tr className={styles.table_data} key={`order_table_data_${index}`}>
-                                        <td><img className={styles.img_td} src={array.img} /></td>
+                                        <td><img className={styles.img_td} src={array.img} alt={`imagem_do_produto_${index}`}/></td>
                                         <td>{array.produto}</td>
                                         <td>{array.detalhes} - {array.genero} - {array.tamanho}</td>
                                         <td>{array.status}</td>

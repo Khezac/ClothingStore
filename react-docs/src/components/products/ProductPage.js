@@ -6,7 +6,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import SizeInput from './SizeInput'
 import GenderInput from './GenderInput'
 import { v4 as uuidv4 } from 'uuid';
-import { useLocation } from 'react-router-dom'
 
 function ProductPage({ setBuyProducts, buyProducts }) {
     // Pega o id da URL

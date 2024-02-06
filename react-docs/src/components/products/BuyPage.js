@@ -27,7 +27,7 @@ function BuyPage({ buyProducts }) {
                 })
                 .catch((err) => console.log(err))
         }, 3)
-    }, [])
+    }, [onlineUserId])
 
     // Define o cep do usuário que está online
     let onlineCep = ''
