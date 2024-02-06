@@ -8,7 +8,7 @@ import GenderInput from './GenderInput'
 import { v4 as uuidv4 } from 'uuid';
 import { useLocation } from 'react-router-dom'
 
-function ProductPage() {
+function ProductPage({ setBuyProducts, buyProducts }) {
     // Pega o id da URL
     const { id } = useParams()
 
@@ -87,7 +87,7 @@ function ProductPage() {
         setPreferences({ ...preferences, [e.target.name]: e.target.value })
     }
 
-    let produtoPreco, produtoQuantidade ,orderPrice
+    let produtoPreco, produtoQuantidade, orderPrice
     function handleAmount(e) {
         if (status === 'logado') {
             produtoPreco = parseFloat(produto.price)
@@ -127,9 +127,35 @@ function ProductPage() {
 
     function handleSubmit() {
         if (status === 'logado') {
+            sendProductInfo()
+        } else {
+            navigate('/cadastro')
+        }
+    }
+    function handleCart() {
+        if (status === 'logado') {
             validateInputs()
         } else {
             navigate('/cadastro')
+        }
+    }
+
+    let preferencias = []
+    function sendProductInfo() {
+        if (preferences !== undefined) {
+            if (preferences.quantidade && preferences.tamanho && preferences.genero) {
+                if (preferences.quantidade < 100) {
+                    preferencias = [preferences]
+                    setBuyProducts(preferencias)
+                    navigate('/comprar')
+                } else {
+                    alert('Limite de unidades: 99')
+                }
+            } else {
+                alert('É necessário preencher todas as opções!')
+            }
+        } else {
+            alert('Por favor, preencha todas as opções necessárias!')
         }
     }
 
@@ -204,16 +230,20 @@ function ProductPage() {
                             {everyGender.length > 0 && everyGender.map((array, element) => <GenderInput key={element} gender={array} onChange={handleGender} />)}
                         </div>
                     </div>
-                    <div className={styles.buy_section}>
-                        {produto && (
-                            <p className={styles.buy_price}><strong>{produto.price}</strong></p>
-                        )}
-                        <div className={styles.amount_wrapper}></div>
+                    <div className={styles.amount_wrapper}>
                         <label className={styles.amount_title} htmlFor='amount'>Quantidade:</label>
                         <div className={styles.amount_counter_container}>
                             <input className={styles.amount_counter} required name='quantidade' type="number" min='1' max='99' placeholder='1' onChange={handleAmount} />
                         </div>
+                    </div>
+                    <div className={styles.buy_section}>
+                        {produto && (
+                            <p className={styles.buy_price}><strong>{produto.price}</strong></p>
+                        )}
+                        <div>
                         <button className={`${styles.buy_btn} btn btn-primary`} onClick={handleSubmit}>Comprar</button>
+                        <button className={`${styles.buy_btn} btn btn-info`} onClick={handleCart}><i className="bi bi-cart w-100 h-100" /></button>
+                        </div>
                     </div>
                 </div>
             </div>

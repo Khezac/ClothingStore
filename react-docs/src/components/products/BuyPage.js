@@ -2,12 +2,13 @@ import styles from './BuyPage.module.css'
 import { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
-function BuyPage() {
+function BuyPage({ buyProducts }) {
 
     const [user, setUser] = useState({})
     const [cepInfo, setCepInfo] = useState([])
     const [endereçoForm, setEndereçoForm] = useState(false)
     const [nameTelForm, setNameTelForm] = useState(false)
+    const [finalPrice, setFinalPrice] = useState()
 
     // Identifica o usuário que está online
     const onlineUser = JSON.parse(localStorage.getItem("checkUser"))
@@ -81,36 +82,46 @@ function BuyPage() {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    function handleReload() {
-        window.location.reload()
-    }
+    let eachOrderPrice = 0 
+    let everyOrderPrice = 0
+    let strOrderPrice = ''
+    setTimeout(()=>{
+        buyProducts.map((element)=>{
+            eachOrderPrice = parseFloat(element.preco_pedido)
+            everyOrderPrice += eachOrderPrice
+        })
+        strOrderPrice = everyOrderPrice.toFixed(2)
+        setFinalPrice(strOrderPrice)
+    },1)
 
     return (
         <section className={styles.buypage_wrapper}>
             <div className={styles.buypage_container}>
-                <div className={styles.product_info}>
-                    <p className={styles.product_info_title}>Produtos:</p>
-                    <table className={styles.product_table}>
-                        <thead>
-                            <tr>
-                                <th className={styles.table_header}>Imagem</th>
-                                <th className={styles.table_header}>produto</th>
-                                <th className={styles.table_header}>Sexo</th>
-                                <th className={styles.table_header}>Tamanho</th>
-                                <th className={styles.table_header}>Quantidade</th>
-                                <th className={styles.table_header}>Preço/unid</th>
+                <div className={styles.product_info} key='product_info'>
+                    <p className={styles.product_info_title} key='product_table_label'>Produtos:</p>
+                    <table className={styles.product_table} key='product_table'>
+                        <thead key='product_table_header'>
+                            <tr key='product_table_row'>
+                                <th className={styles.table_header} key='product_table_data1'>Imagem</th>
+                                <th className={styles.table_header} key='product_table_data2'>produto</th>
+                                <th className={styles.table_header} key='product_table_data3'>Sexo</th>
+                                <th className={styles.table_header} key='product_table_data4'>Tamanho</th>
+                                <th className={styles.table_header} key='product_table_data5'>Quantidade</th>
+                                <th className={styles.table_header} key='product_table_data6'>Preço/unid</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr className={styles.table_data} key='cart_table_data'>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
+                        {buyProducts && buyProducts.map((element,index) => (
+                            <tbody key={`product_table_body_${index}`}>
+                                <tr className={styles.table_data} key={`cart_table_data_${index}`}>
+                                    <td><img className={styles.img_td} src={element.img} /></td>
+                                    <td>{element.produto}</td>
+                                    <td>{element.genero}</td>
+                                    <td>{element.tamanho}</td>
+                                    <td>{element.quantidade}</td>
+                                    <td>{element.preco_unid}</td>
+                                </tr>
+                            </tbody>
+                        ))}
                     </table>
                 </div>
                 <div className={styles.buy_info}>
@@ -131,12 +142,6 @@ function BuyPage() {
                                 alt="checked_button"
                             />
                         )}
-                        < img
-                            className={styles.edit_button}
-                            src='https://cdn-icons-png.freepik.com/512/560/560463.png'
-                            onClick={handleReload}
-                            alt="reload_button"
-                        />
                     </div>
                     <ul className={styles.buy_info_list}>
                         <li>
@@ -259,12 +264,6 @@ function BuyPage() {
                                 alt="check_button"
                             />
                         )}
-                        <img
-                            className={styles.edit_button}
-                            src='https://cdn-icons-png.freepik.com/512/560/560463.png'
-                            onClick={handleReload}
-                            alt="reload_button"
-                        />
                     </div>
                     <ul className={styles.destinatario_container}>
                         <li>
@@ -303,7 +302,12 @@ function BuyPage() {
                         </li>
                     </ul>
                     <div className={styles.price_container}>
-                        <p className={styles.price_value}><strong>R$: </strong>preço</p>
+                    {buyProducts ? (
+                        <p className={styles.price_value}><strong>Preço Final:</strong> R${finalPrice} </p>
+                    ) : (
+                        <p className={styles.price_value}><strong>Preço Final:</strong> Sem Informação </p>
+                    )}
+                    
                         <button className="btn btn-primary">Comprar</button>
                     </div>
                 </div>

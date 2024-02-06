@@ -18,6 +18,8 @@ import Footer from "./components/layout/Footer";
 
 function App() {
 
+  const [buyProducts, setBuyProducts] = useState([])
+
   return (
     <Router>
       <Navbar/>        
@@ -25,13 +27,13 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/sobre" element={<Sobre/>}/>
           <Route path="/atendimento" element={<Atendimento/>}/>
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/comprar" element={<BuyPage/>}/>
+          <Route path="/profile" element={<Profile setBuyProducts={setBuyProducts}/>}/>
+          <Route path="/comprar" element={<BuyPage buyProducts={buyProducts} />}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
           <Route path="/alterarsenha1" element={<AlterarSenha1/>}/>
           <Route path="/alterarsenha2" element={<AlterarSenha2/>}/>
-          <Route path="/produtos/:id" element={<ProductPage/>}/>
+          <Route path="/produtos/:id" element={<ProductPage setBuyProducts={setBuyProducts} buyProducts={buyProducts}/>}/>
         </Routes>
       <Footer/>
     </Router>

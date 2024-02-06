@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import trashIcon from '../../img/icones/126468.png'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-function Profile() {
+function Profile({setBuyProducts}) {
 
     const [user, setUser] = useState({})
     const [editedUser, setEditedUser] = useState({})
@@ -12,6 +12,7 @@ function Profile() {
     const [cepInfo, setCepInfo] = useState([])
     const [profileForm, setProfileForm] = useState(false)
     const [totalValue, setTotalValue] = useState(0)
+    const [productAmount, setProductAmount] = useState([])
 
     const navigate = useNavigate()
 
@@ -113,24 +114,51 @@ function Profile() {
     const pedidosUser = pedidos.filter(pedidos => (pedidos.cliente === user.id))
 
     // Valor total dos itens selecionados no carrinho
+    let selectedOrders = []
     let valorInput = 0
     function handleCheck(e) {
         valorInput += parseFloat(e.target.value)
         if (e.target.checked) {
             setTotalValue(prev => { return prev += valorInput; })
         } else if (e.target.checked === false) {
-            setTotalValue(prev => { return prev -= valorInput; })   
+            setTotalValue(prev => { return prev -= valorInput; })
         }
+        const selectedInputs = document.querySelectorAll('input[type="checkbox"]:checked')
+        selectedOrders = Array.from(selectedInputs).map(x => x.name)
+        setProductAmount(selectedOrders)
     }
 
-    let selectedOrders = []
-    function handleBuy(){
+
+    function handleBuy() {
         const selectedInputs = document.querySelectorAll('input[type="checkbox"]:checked')
         selectedOrders = Array.from(selectedInputs).map(x => x.name)
 
+        selectedOrders.map((element) => handleFetch(element))
         navigate('/comprar')
     }
-        
+
+    let selectedOrdersToBeSent = []
+    function handleFetch(value){
+        fetch("http://localhost:5000/pedidos", {
+        method: "GET",
+        headers: {'Content-Type': 'application/json',},
+    })
+    .then((resp) => resp.json())
+    .then((data) => {const result = data.filter((product) => {
+        return (
+            value && 
+            product && 
+            product.id && 
+            product.id.includes(value)
+        )
+    }) 
+    selectedOrdersToBeSent.push(...result)
+    
+    })
+    .catch((err) => console.log(err))
+    setBuyProducts(selectedOrdersToBeSent)
+    }
+
     // Deleta determinado pedido
     function handleDelete(e) {
         fetch(`http://localhost:5000/pedidos/${e.target.id}`, {
@@ -138,7 +166,7 @@ function Profile() {
             headers: { 'Content-Type': 'application/json', },
         })
             .then((resp) => resp.json())
-            .then((data) => {
+            .then(() => {
                 window.location.reload()
             })
             .catch((err) => console.log(err))
@@ -320,7 +348,12 @@ function Profile() {
                     </div>
                     <div className={styles.selected_and_price}>
                         <div>
-                            <p className={styles.amount_selected}><strong>Selecionados: </strong>5</p>
+                            {productAmount > 0 ? (
+                                <p className={styles.amount_selected}><strong>Selecionados: </strong>{productAmount.length}</p>
+                            ) : (
+                                <p className={styles.amount_selected}><strong>Selecionados: </strong>{productAmount.length}</p>
+                            )}
+
                             <button className="btn btn-primary" onClick={handleBuy}>Finalizar Compra</button>
                         </div>
                         <div>
@@ -344,7 +377,7 @@ function Profile() {
                                     <th className={styles.details_td}>Detalhes</th>
                                     <th className={styles.status_td}>Status</th>
                                 </tr>
-                                {pedidosUser != '' ? (pedidosUser.map((array,index) => (
+                                {pedidosUser != '' ? (pedidosUser.map((array, index) => (
                                     <tr className={styles.table_data} key={`order_table_data_${index}`}>
                                         <td><img className={styles.img_td} src={array.img} /></td>
                                         <td>{array.produto}</td>

@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 function SearchBar({setResults,setToggleFocus}) {
 
     // Pega o que estiver sendo digitado
-    function  handleSearch(e){
+    function handleSearch(e){
         handleFetch(e.target.value)
     }
 
