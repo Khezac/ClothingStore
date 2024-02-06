@@ -14,7 +14,8 @@
       "confirmar_senha": "2",
       "telefone": "2299012951",
       "cep": "28605562",
-      "nome": "Lucas Carlos"
+      "nome": "Lucas Carlos",
+      "email": "2@2"
     },
     {
       "id": "email@email",
@@ -30,6 +31,13 @@
       "nome": "Lucas Carlos",
       "cep": "28605562",
       "telefone": "2299012951"
+    },
+    {
+      "id": "khezac1@gmail.com",
+      "senha": "jhonson",
+      "confirmar_senha": "jhonson",
+      "cep": "28605562",
+      "nome": "khezac"
     }
   ],
   "produtos": [

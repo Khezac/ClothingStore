@@ -10,15 +10,11 @@ import spring from '../../img/seasons_section3_cards/spring_card.jpg'
 import summer from '../../img/seasons_section3_cards/summer_card.jpg'
 import winter from '../../img/seasons_section3_cards/winter_card.jpg'
 
-// import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 
 function Home() {
 
   const [produtos, setProdutos] = useState()
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     setTimeout(() => {

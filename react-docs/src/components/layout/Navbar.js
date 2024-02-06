@@ -1,7 +1,7 @@
 import styles from './Navbar.module.css'
 import logo from '../../../src/img/logo/logo1.png'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
 import Container from './Container';
@@ -12,8 +12,6 @@ import ProfileButton from './ProfileButton';
 import ProfileMenu from './ProfileMenu';
 
 function Navbar() {
-
-    const navigate = useNavigate()
 
     // Resultado da barra de pesquisa e alternancia de visibilidade 
     const [results,setResults] = useState([])

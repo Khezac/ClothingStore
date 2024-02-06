@@ -43,7 +43,7 @@ function SearchBar({setResults,setToggleFocus}) {
     return (
         <div className={styles.search_bar}>
             <input onFocus={handleFocus} onBlur={handleFocusTime} type='text' placeholder='Pesquise por um produto...' onChange={handleSearch}/>
-            <a href='/' className={styles.btn_search}><FaSearch /></a>
+            <FaSearch className={styles.btn_search}/>
         </div>
     )
 }
