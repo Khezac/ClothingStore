@@ -163,11 +163,13 @@
 }
 
 .other_products_list{
+    width:1044px;
     list-style: none;
     display: flex;
     gap: 20px;
-    padding:0;
+    padding:10px;
     margin-bottom:60px;
+    overflow-x: auto;
 }
 /* Outros Produtos */
 

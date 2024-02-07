@@ -236,6 +236,19 @@
       "id": "7527d4c2-d9d7-49da-8324-69e24fc9cdbf",
       "cliente": "2@2",
       "status": "Aguardando Pagamento"
+    },
+    {
+      "tamanho": "GG",
+      "genero": "Masculino",
+      "quantidade": "1",
+      "img": "https://lojagrifes.fbitsstatic.net/img/p/casaco-tricot-reserva-masc-basico-gola-v-cinza-mescla-77164/282195-1.jpg?w=449&h=587&v=no-change&qs=ignore",
+      "produto": "Casaco Básico",
+      "detalhes": "Cor Cinza",
+      "preco_unid": "89.90",
+      "preco_pedido": "89.90",
+      "id": "4fee897c-2b44-4190-8f1e-c65b4a4495d4",
+      "cliente": "khezac1@gmail.com",
+      "status": "Aguardando Pagamento"
     }
   ]
 }
