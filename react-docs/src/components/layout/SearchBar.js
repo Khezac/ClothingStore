@@ -11,7 +11,7 @@ function SearchBar({setResults,setToggleFocus}) {
 
     // Oque está sendo digitado vem da api pra state na Navbar.js por props
     function handleFetch(value){
-        fetch("http://localhost:5000/produtos", {
+        fetch("https://clothingstore-api.vercel.app/produtos", {
         method: "GET",
         headers: {'Content-Type': 'application/json',},
     })

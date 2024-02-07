@@ -23,7 +23,7 @@ function Coleções() {
     const season = id.toString()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/produtos`, {
+        fetch(`https://clothingstore-api.vercel.app/produtos`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', },
         })

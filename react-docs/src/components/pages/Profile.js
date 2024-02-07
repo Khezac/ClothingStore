@@ -23,7 +23,7 @@ function Profile({setBuyProducts}) {
     // Pega as informaçoes da api do usuário que está online
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/usuarios/${onlineUserId}`, {
+            fetch(`https://clothingstore-api.vercel.app/usuarios/${onlineUserId}`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json', },
             })
@@ -66,7 +66,7 @@ function Profile({setBuyProducts}) {
         sendNewInfo(editedUser)
     }
     function sendNewInfo(state) {
-        fetch(`http://localhost:5000/usuarios/${onlineUserId}`, {
+        fetch(`https://clothingstore-api.vercel.app/usuarios/${onlineUserId}`, {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(state)
@@ -101,7 +101,7 @@ function Profile({setBuyProducts}) {
     // Pega os pedidos na api, deverá filtrar os pedidos que tiverem apenas o id de quem está online
     useEffect(() => {
         setTimeout(() => {
-            fetch("http://localhost:5000/pedidos", {
+            fetch("https://clothingstore-api.vercel.app/pedidos", {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json', },
             })
@@ -140,7 +140,7 @@ function Profile({setBuyProducts}) {
 
     let selectedOrdersToBeSent = []
     function handleFetch(value){
-        fetch("http://localhost:5000/pedidos", {
+        fetch("https://clothingstore-api.vercel.app/pedidos", {
         method: "GET",
         headers: {'Content-Type': 'application/json',},
     })
@@ -162,7 +162,7 @@ function Profile({setBuyProducts}) {
 
     // Deleta determinado pedido
     function handleDelete(e) {
-        fetch(`http://localhost:5000/pedidos/${e.target.id}`, {
+        fetch(`https://clothingstore-api.vercel.app/pedidos/${e.target.id}`, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json', },
         })

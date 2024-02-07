@@ -32,7 +32,7 @@ function Atendimento() {
 
     // Manda as informações da state pra API
     function sendContactAttempt(contactAttempt){
-        fetch('http://localhost:5000/atendimento', {
+        fetch('https://clothingstore-api.vercel.app/atendimento', {
             method:'POST', 
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(contactAttempt),

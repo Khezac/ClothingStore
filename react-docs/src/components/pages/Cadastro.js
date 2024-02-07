@@ -92,7 +92,7 @@ function Cadastro({ userData }) {
 
     // Manda o usuário criado para o backend
     function sendUser(user) {
-        fetch("http://localhost:5000/usuarios", {
+        fetch("https://clothingstore-api.vercel.app/usuarios", {
             method: 'POST',
             headers: { 'Content-type': 'application/json', },
             body: JSON.stringify(user),

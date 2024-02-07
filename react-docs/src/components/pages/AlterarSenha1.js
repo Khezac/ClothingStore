@@ -24,7 +24,7 @@ function AlterarSenha1() {
     }
 
     function handleFetch(value){
-        fetch(`http://localhost:5000/usuarios/${value}`,{
+        fetch(`https://clothingstore-api.vercel.app/usuarios/${value}`,{
             method:'GET',
             headers: {'Content-Type':'application/json',},
         }).then((resp) => {

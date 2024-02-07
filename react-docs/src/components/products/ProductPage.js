@@ -28,7 +28,7 @@ function ProductPage({ setBuyProducts, buyProducts }) {
     // Resgata as informações da API do produto especificado na URL
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/produtos/${id}`, {
+            fetch(`https://clothingstore-api.vercel.app/produtos/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ function ProductPage({ setBuyProducts, buyProducts }) {
     // Resgata as informações de todos os produtos da API e salva em states
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/produtos`, {
+            fetch(`https://clothingstore-api.vercel.app/produtos`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ function ProductPage({ setBuyProducts, buyProducts }) {
 
     // Envia as informações captadas para a API de pedidos
     function sendPreferences(preferences) {
-        fetch("http://localhost:5000/pedidos", {
+        fetch("https://clothingstore-api.vercel.app/pedidos", {
             method: 'POST',
             headers: { 'Content-type': 'application/json', },
             body: JSON.stringify(preferences),

@@ -41,7 +41,7 @@ function EsqueciMinhaSenha() {
     }
 
     function updateFetch(value, updatedValue) {
-        fetch(`http://localhost:5000/usuarios/${value}`, {
+        fetch(`https://clothingstore-api.vercel.app/usuarios/${value}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(updatedValue)

@@ -19,7 +19,7 @@ function Login() {
 
     // Pega as informações da fake api e armazena na state
     useEffect(() => {
-        fetch('http://localhost:5000/usuarios', {
+        fetch('https://clothingstore-api.vercel.app/usuarios', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', },
         })

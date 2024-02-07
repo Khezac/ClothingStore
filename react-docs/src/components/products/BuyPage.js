@@ -16,7 +16,7 @@ function BuyPage({ buyProducts }) {
     // Pega as informaçoes da api do usuário que está online
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/usuarios/${onlineUserId}`, {
+            fetch(`https://clothingstore-api.vercel.app/usuarios/${onlineUserId}`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json', },
             })
