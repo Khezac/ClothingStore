@@ -1,6 +1,6 @@
 import styles from './SizeInput.module.css'
 
-function SizeInput({ size,onChange,id }) {
+function SizeInput({ size,onChange }) {
     return (
         <>
             <div className={styles.size_input_container}>

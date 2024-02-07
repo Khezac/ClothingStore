@@ -72,7 +72,8 @@ function Profile({setBuyProducts}) {
             body: JSON.stringify(state)
         })
             .then((resp) => resp.json())
-            .then(() => {
+            .then((data) => {
+                localStorage.setItem('onlineUserCep', data.cep)
                 window.location.reload()
             })
             .catch((err) => console.log(err))

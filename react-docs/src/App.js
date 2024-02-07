@@ -15,6 +15,7 @@ import ProductPage from "./components/products/ProductPage";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import Coleções from "./components/pages/Coleções";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/profile" element={<Profile setBuyProducts={setBuyProducts}/>}/>
           <Route path="/comprar" element={<BuyPage buyProducts={buyProducts} />}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/colecao/:id" element={<Coleções/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
           <Route path="/alterarsenha1" element={<AlterarSenha1/>}/>
           <Route path="/alterarsenha2" element={<AlterarSenha2/>}/>

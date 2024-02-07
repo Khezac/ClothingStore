@@ -66,10 +66,10 @@ function Home() {
       <section className={styles.collections_wrapper}>
         <h1>outras coleções</h1>
         <div className={styles.collections_container}>
-          <CollectionCard img={autumn} txt='outono' />
-          <CollectionCard img={spring} txt='primavera' />
-          <CollectionCard img={summer} txt='verão' />
-          <CollectionCard img={winter} txt='inverno' />
+          <CollectionCard img={autumn} txt='outono' link='/colecao/autumn'/>
+          <CollectionCard img={spring} txt='primavera' link='/colecao/spring'/>
+          <CollectionCard img={summer} txt='verão' link='/colecao/summer'/>
+          <CollectionCard img={winter} txt='inverno' link='/colecao/winter'/>
         </div>
       </section>
     </div>

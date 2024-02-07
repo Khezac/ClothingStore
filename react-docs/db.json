@@ -34,10 +34,12 @@
     },
     {
       "id": "khezac1@gmail.com",
-      "senha": "jhonson",
-      "confirmar_senha": "jhonson",
+      "senha": "123",
+      "confirmar_senha": "123",
       "cep": "28605562",
-      "nome": "khezac"
+      "nome": "Khezac",
+      "email": "khezac1@gmail.com",
+      "telefone": "22999012951"
     }
   ],
   "produtos": [
@@ -60,7 +62,8 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "29.90"
+      "price": "29.90",
+      "colecao": "summer"
     },
     {
       "id": 2,
@@ -82,7 +85,8 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "39.90"
+      "price": "39.90",
+      "colecao": "summer"
     },
     {
       "id": 3,
@@ -103,7 +107,8 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "29.90"
+      "price": "29.90",
+      "colecao": "summer"
     },
     {
       "id": 4,
@@ -124,7 +129,48 @@
         "Feminino": "Feminino",
         "Unissex": "Unissex"
       },
-      "price": "59.90"
+      "price": "59.90",
+      "colecao": "summer"
+    },
+    {
+      "id": 5,
+      "name": "Casaco Básico",
+      "description": "Cor Cinza",
+      "imgs": {
+        "img1": "https://lojagrifes.fbitsstatic.net/img/p/casaco-tricot-reserva-masc-basico-gola-v-cinza-mescla-77164/282195-1.jpg?w=449&h=587&v=no-change&qs=ignore",
+        "img2": "https://lojagrifes.fbitsstatic.net/img/p/casaco-tricot-reserva-masc-basico-gola-v-cinza-mescla-77164/282195-4.jpg?&w=449&h=587&v=no-change&qs=ignore"
+      },
+      "sizes": {
+        "P": "P",
+        "M": "M",
+        "G": "G",
+        "GG": "GG"
+      },
+      "gender": {
+        "Masculino": "Masculino"
+      },
+      "price": "89.90",
+      "colecao": "winter"
+    },
+    {
+      "id": 6,
+      "name": "Casaco Básico",
+      "description": "Cor Cinza",
+      "imgs": {
+        "img1": "https://a-static.mlcdn.com.br/800x560/casaco-basico-cinza-pau-a-pique/pauapiqueconfeccoes/28778/21509ad0305e9cafbe9fdf8c03744e0e.jpeg",
+        "img2": "https://a-static.mlcdn.com.br/450x450/casaco-basico-cinza-pau-a-pique/pauapiqueconfeccoes/28778/1b66da97a0721e9753613e99fb148b46.jpeg"
+      },
+      "sizes": {
+        "P": "P",
+        "M": "M",
+        "G": "G",
+        "GG": "GG"
+      },
+      "gender": {
+        "Feminino": "Feminino"
+      },
+      "price": "89.90",
+      "colecao": "winter"
     }
   ],
   "atendimento": [
@@ -135,9 +181,6 @@
       "telefone": "2299012951",
       "assunto": "Assunto Qualquer",
       "details": "Este assunto não tem nada de importante nem nada de interessante mas estou enviando para testar a API.:D"
-    },
-    {
-      "id": "Php7Jrr"
     }
   ],
   "pedidos": [
