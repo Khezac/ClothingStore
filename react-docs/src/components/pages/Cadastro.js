@@ -59,8 +59,7 @@ function Cadastro({ userData }) {
             alert('Existem campos incorretos ou vazios, preencha todos!')
             return
         }
-        console.log(user)
-        // sendUser(user)
+        sendUser(user)
     }
 
     // Altera a visibilidade da senha e o botão

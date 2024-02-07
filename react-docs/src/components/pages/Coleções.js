@@ -48,14 +48,17 @@ function Coleções() {
         setSizeFilter(e.target.value)
     }
 
+    // eslint-disable-next-line
     useEffect(() => { HandleGenderFilter(genderFilter) }, [genderFilter])
+    // eslint-disable-next-line
     useEffect(() => { HandleSizeFilter(sizeFilter) }, [sizeFilter])
 
     function HandleGenderFilter(filtro) {
         setFiltered(collection.filter((produto) => {
             if (produto.gender.hasOwnProperty(filtro)) {
                 return produto
-            }
+            } 
+            return undefined
         })
         )
     }
@@ -65,6 +68,7 @@ function Coleções() {
             if (produto.sizes.hasOwnProperty(filtro)) {
                 return produto
             }
+            return undefined
         })
         )
     }
