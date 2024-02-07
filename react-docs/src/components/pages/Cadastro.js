@@ -43,8 +43,9 @@ function Cadastro({ userData }) {
     // Valida a confirmação de senha
     function submit(e) {
         e.preventDefault()
-        if(user.id && user.senha && user.confirmar_senha){
-            if(user.id !== '' && user.senha !== '' && user.confirmar_senha !== '' ){
+        if(user.cep === 8 || !user.cep){
+            if(user.id && user.senha && user.confirmar_senha){
+            if(user.id !== '' && user.senha !== '' && user.confirmar_senha !== '' && user.senha >= 8){
                 if (user.confirmar_senha === user.senha) {
                     sendUser(user)
                 } else {
@@ -52,13 +53,18 @@ function Cadastro({ userData }) {
                     return
                 }
             } else {
-                alert('Os campos precisam ser preenchidos!')
+                alert('As senhas devem ser iguais! (min: 8 caracteres | max: 16 caracteres)')
                 return
             }
         } else {
             alert('Existem campos incorretos ou vazios, preencha todos!')
             return
         }
+    } else {
+        alert('O cep está incorreto ou incompleto')
+        return
+    }
+        
         sendUser(user)
     }
 

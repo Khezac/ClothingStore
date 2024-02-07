@@ -28,7 +28,11 @@ function EsqueciMinhaSenha() {
     function handleSubmit(e) {
         e.preventDefault()
         if (updatedUser.senha === updatedUser.confirmar_senha) {
+            if(updatedUser.senha >= 8){
             updateFetch(updatedUser.email, updatedUser)
+            } else {
+                alert('A senha precisa ter um minimo de 8 caracteres!')
+            }
         } else {
             setTypeMessage('error')
             setMessage('As senhas precisam ser iguais!')

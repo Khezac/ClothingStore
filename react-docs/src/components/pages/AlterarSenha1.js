@@ -31,7 +31,7 @@ function AlterarSenha1() {
             if(resp.status === 200){
                 sendEmail()
             } else {
-                setMessage('Você não está registrado!')
+                setMessage('Email não registrado!')
                 setTypeMessage('error')
                 return
             }
@@ -54,7 +54,7 @@ function AlterarSenha1() {
                 },
                 (err) => {
                     console.log('error', err)
-                    setMessage('Algo deu errado! Email não encontrado.')
+                    setMessage('Algo deu errado! Email inválido.')
                     setTypeMessage('error')
                 })
                 console.log(templateParams)

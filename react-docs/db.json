@@ -2,44 +2,11 @@
   "usuarios": [
     {
       "id": "1@1",
-      "senha": "1",
+      "senha": "12345678",
       "confirmar_senha": "1",
       "nome": "Gabriel",
       "telefone": "22222222222",
       "cep": "28605562"
-    },
-    {
-      "id": "2@2",
-      "senha": "2",
-      "confirmar_senha": "2",
-      "telefone": "2299012951",
-      "cep": "28605562",
-      "nome": "Lucas Carlos",
-      "email": "2@2"
-    },
-    {
-      "id": "email@email",
-      "senha": "123",
-      "confirmar_senha": "123",
-      "nome": "Douglinha",
-      "cep": "28605562"
-    },
-    {
-      "id": "augustoalves@gmail.com",
-      "senha": "augustoalves",
-      "confirmar_senha": "augustoalves",
-      "nome": "Lucas Carlos",
-      "cep": "28605562",
-      "telefone": "2299012951"
-    },
-    {
-      "id": "khezac1@gmail.com",
-      "senha": "123",
-      "confirmar_senha": "123",
-      "cep": "28605562",
-      "nome": "Khezac",
-      "email": "khezac1@gmail.com",
-      "telefone": "22999012951"
     }
   ],
   "produtos": [
@@ -181,73 +148,35 @@
       "telefone": "2299012951",
       "assunto": "Assunto Qualquer",
       "details": "Este assunto não tem nada de importante nem nada de interessante mas estou enviando para testar a API.:D"
+    },
+    {
+      "nome": "2",
+      "id": "2@2",
+      "telefone": "2",
+      "assunto": "2",
+      "details": "2"
+    },
+    {
+      "nome": "3",
+      "id": "3@3",
+      "telefone": "3",
+      "assunto": "3",
+      "details": "3"
     }
   ],
   "pedidos": [
     {},
     {
-      "tamanho": "P",
-      "genero": "Feminino",
-      "quantidade": "3",
-      "img": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
-      "produto": "Camisa Básica",
-      "detalhes": "Cor Preta",
-      "preco_unid": "29.90",
-      "preco_pedido": "89.70",
-      "id": "2c483d33-8b27-421c-a828-43b5147dc98f",
-      "cliente": "2@2",
-      "status": "Aguardando Pagamento"
-    },
-    {
-      "tamanho": "P",
+      "tamanho": "PP",
       "genero": "Masculino",
       "quantidade": "1",
-      "img": "https://i.pinimg.com/736x/65/24/eb/6524ebe9ab6dd4e82cd32f36688d1eaf.jpg",
-      "produto": "Camisa Básica",
+      "img": "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/vdtkq3crxafm3pw703ni.webp",
+      "produto": "Camisa Polo",
       "detalhes": "Cor Preta",
-      "preco_unid": "29.90",
-      "preco_pedido": "29.90",
-      "id": "642747cd-e854-4d76-bcb1-5860bcd51fa2",
+      "preco_unid": "39.90",
+      "preco_pedido": "39.90",
+      "id": "c3a8fa23-367c-4f4d-b3f0-510d3794b945",
       "cliente": "2@2",
-      "status": "Aguardando Pagamento"
-    },
-    {
-      "tamanho": "M",
-      "genero": "Feminino",
-      "quantidade": "2",
-      "img": "https://media.istockphoto.com/id/1302815072/pt/foto/blank-black-tshirt-on-young-man-template-on-white-background.jpg?s=612x612&w=0&k=20&c=mzU1mrZCwV_0Sva0tCGToKLz2uKkAB1j9xscs8ZazUQ=",
-      "produto": "Camisa Básica",
-      "detalhes": "Cor Preta",
-      "preco_unid": "29.90",
-      "preco_pedido": "59.80",
-      "id": "fb96709f-4ecc-4a69-8c8a-7d9d65b53825",
-      "cliente": "2@2",
-      "status": "Aguardando Pagamento"
-    },
-    {
-      "tamanho": "P",
-      "genero": "Masculino",
-      "quantidade": "1",
-      "img": "https://img.olx.com.br/images/77/779313237462026.webp",
-      "produto": "Bermuda",
-      "detalhes": "Florida",
-      "preco_unid": "59.90",
-      "preco_pedido": "59.90",
-      "id": "7527d4c2-d9d7-49da-8324-69e24fc9cdbf",
-      "cliente": "2@2",
-      "status": "Aguardando Pagamento"
-    },
-    {
-      "tamanho": "GG",
-      "genero": "Masculino",
-      "quantidade": "1",
-      "img": "https://lojagrifes.fbitsstatic.net/img/p/casaco-tricot-reserva-masc-basico-gola-v-cinza-mescla-77164/282195-1.jpg?w=449&h=587&v=no-change&qs=ignore",
-      "produto": "Casaco Básico",
-      "detalhes": "Cor Cinza",
-      "preco_unid": "89.90",
-      "preco_pedido": "89.90",
-      "id": "4fee897c-2b44-4190-8f1e-c65b4a4495d4",
-      "cliente": "khezac1@gmail.com",
       "status": "Aguardando Pagamento"
     }
   ]

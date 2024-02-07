@@ -28,7 +28,6 @@ function Atendimento() {
     }
     function handleDetails(e){
         setContactAttempt({...contactAttempt,[e.target.name]: e.target.value})
-        console.log(contactAttempt)
     }
 
     // Manda as informações da state pra API
@@ -40,7 +39,6 @@ function Atendimento() {
         })
         .then((resp) => resp.json())
         .then((data) => {
-            console.log(data)
             setMessage("Requerimento enviado, enviaremos um e-mail de volta!")// Mostra mensagem de sucesso
     })
         .catch((err) => console.log(err))
