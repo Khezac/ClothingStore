@@ -10,7 +10,7 @@ function BuyPage({ buyProducts }) {
     const [finalPrice, setFinalPrice] = useState()
 
     // Identifica o usuário que está online
-    const onlineUser = JSON.parse(localStorage.getItem("checkUser"))
+    const onlineUser = localStorage.getItem("checkUser")
     const onlineUserId = onlineUser.id
 
     // Pega as informaçoes da api do usuário que está online
@@ -30,10 +30,11 @@ function BuyPage({ buyProducts }) {
     }, [onlineUserId])
 
     // Define o cep do usuário que está online
-    let onlineCep = ''
+        let onlineCep = ''
     if (user !== '') {
-        onlineCep = JSON.parse(localStorage.getItem('onlineUserCep'))
+        onlineCep = localStorage.getItem('onlineUserCep')
     }
+    
 
     // Pega infos da API dos correios e armazena em state
     useEffect(() => {
@@ -45,7 +46,7 @@ function BuyPage({ buyProducts }) {
                 .then((resp) => resp.json())
                 .then((data) => setCepInfo(data))
                 .catch((err) => console.log(err))
-        }, 4)
+        }, 9)
     }, [onlineCep])
 
     function toggleEndereçoForm() {
