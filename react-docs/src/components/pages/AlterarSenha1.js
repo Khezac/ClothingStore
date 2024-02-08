@@ -31,10 +31,10 @@ function AlterarSenha1() {
             if(resp.status === 200){
                 sendEmail()
             } else {
-                setMessage('Email não registrado!')
                 setTypeMessage('error')
-                return
+                setMessage('Email não registrado.')
             }
+
         })
     }
 
@@ -57,7 +57,6 @@ function AlterarSenha1() {
                     setMessage('Algo deu errado! Email inválido.')
                     setTypeMessage('error')
                 })
-                console.log(templateParams)
     } else {
         return
     }}

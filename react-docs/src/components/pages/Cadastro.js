@@ -43,9 +43,9 @@ function Cadastro({ userData }) {
     // Valida a confirmação de senha
     function submit(e) {
         e.preventDefault()
-        if(user.cep === 8 || !user.cep){
+        if(user.cep.length === 8 || !user.cep){
             if(user.id && user.senha && user.confirmar_senha){
-            if(user.id !== '' && user.senha !== '' && user.confirmar_senha !== '' && user.senha >= 8){
+            if(user.id !== '' && user.senha !== '' && user.confirmar_senha !== '' && user.senha.length >= 8){
                 if (user.confirmar_senha === user.senha) {
                     sendUser(user)
                 } else {
@@ -100,10 +100,10 @@ function Cadastro({ userData }) {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
-                const state = { message: "Usuário criado com sucesso!" };
-                navigate("/login", { state })
             })
             .catch((err) => console.log(err))
+            const state = { message: "Usuário criado com sucesso!" };
+            navigate("/login", { state })
     }
 
     return (

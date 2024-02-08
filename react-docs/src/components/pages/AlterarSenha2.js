@@ -28,10 +28,11 @@ function EsqueciMinhaSenha() {
     function handleSubmit(e) {
         e.preventDefault()
         if (updatedUser.senha === updatedUser.confirmar_senha) {
-            if(updatedUser.senha >= 8){
-            updateFetch(updatedUser.email, updatedUser)
+            if (updatedUser.senha.length < 8) {
+                setTypeMessage('error')
+                setMessage('A senha precisa ter um minimo de 8 caracteres!')
             } else {
-                alert('A senha precisa ter um minimo de 8 caracteres!')
+                updateFetch(updatedUser.email, updatedUser)
             }
         } else {
             setTypeMessage('error')
@@ -45,19 +46,12 @@ function EsqueciMinhaSenha() {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json', },
             body: JSON.stringify(updatedValue)
-        }).then((resp) => {
-            if (resp.status === 200) {
-                setTypeMessage('success')
-                setMessage('Senha alterada com sucesso!')
-                setTimeout(() => {
-                    navigate('/login')
-                }, 1000);
-                return
-            } else {
-                setTypeMessage('error')
-                setMessage('Usuário não encontrado.')
-                return
-            }
+        }).then(() => {
+            setTypeMessage('success')
+            setMessage('Senha alterada com sucesso!')
+            setTimeout(() => {
+                navigate('/login')
+            }, 1000);
         })
     }
 

@@ -82,7 +82,7 @@ function Profile({setBuyProducts}) {
     // Define o cep do usuário que está online
     let onlineCep = ''
     if (user !== '') {
-        onlineCep = JSON.parse(localStorage.getItem('onlineUserCep'))
+        onlineCep = localStorage.getItem('onlineUserCep')
     }
 
     // Pega infos da API dos correios e armazena em state
@@ -135,7 +135,9 @@ function Profile({setBuyProducts}) {
         selectedOrders = Array.from(selectedInputs).map(x => x.name)
 
         selectedOrders.map((element) => handleFetch(element))
-        navigate('/comprar')
+        setTimeout(() => {
+            navigate('/comprar')
+        }, 200);
     }
 
     let selectedOrdersToBeSent = []
