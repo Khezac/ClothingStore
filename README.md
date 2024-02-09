@@ -2,7 +2,7 @@
 
 Site de roupas, desenvolvido usando React, hooks e algumas dependencias.
 
-- Dependencias:
+Dependencias:
 - react-router-dom
 - json-server
 - react-icons
