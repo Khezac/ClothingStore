@@ -74,9 +74,9 @@ function Profile({setBuyProducts}) {
             .then((resp) => resp.json())
             .then((data) => {
                 localStorage.setItem('onlineUserCep', data.cep)
-                window.location.reload()
             })
             .catch((err) => console.log(err))
+        window.location.reload()
     }
 
     // Define o cep do usuário que está online
