@@ -92,18 +92,18 @@ function Cadastro({ userData }) {
 
     // Manda o usuário criado para o backend
     function sendUser(user) {
-        fetch("https://clothingstore-api.vercel.app/usuarios", {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json', },
-            body: JSON.stringify(user),
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data)
-            })
-            .catch((err) => console.log(err))
-            const state = { message: "Usuário criado com sucesso!" };
-            navigate("/login", { state })
+        // fetch("https://clothingstore-api.vercel.app/usuarios", {
+        //     method: 'POST',
+        //     headers: { 'Content-type': 'application/json', },
+        //     body: JSON.stringify(user),
+        // })
+        //     .then((resp) => resp.json())
+        //     .then((data) => {
+        //         console.log(data)
+        //     })
+        //     .catch((err) => console.log(err))
+        //     const state = { message: "Usuário criado com sucesso!" };
+        //     navigate("/login", { state })
     }
 
     return (
