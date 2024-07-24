@@ -6,11 +6,14 @@
 
 # Qual a finalidade da ClothingStore?
 
-A ClothingStore é um site de roupas, sendo um dos principais projetos do meu portfólio, feito com o objetivo de estudar ReactJs e a ligações com APIs.
+A ClothingStore é um site de roupas, sendo um dos principais projetos do meu portfólio, feito com o objetivo de estudar ReactJs e o consume de APIs.
 
 # Oque foi utilizado?
 
 Para desenvolver o site foi utilizado uma fake API com JsonServer, além de outra bibliotecas e dependencias.
+Ambas as partes do projeto estão em deploy pelo vercel, a seguir os links:
+- <a href="https://clothing-store-eosin.vercel.app/">ClothingStore</a>
+- <a href="https://clothingstore-api.vercel.app/">ClothingStore API</a>
 
 Dependencias:
 - react-router-dom
